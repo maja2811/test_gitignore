@@ -1,0 +1,10 @@
+{
+	"name": "AzureDataLakeStorage566",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/c6798d13-ee61-4edc-9639-1aad1100807c/resourceGroups/digitallabs-atlas-dev/providers/Microsoft.Storage/storageAccounts/datalakegen2atlasdev",
+		"groupId": "dfs",
+		"fqdns": [
+			"datalakegen2atlasdev.dfs.core.windows.net"
+		]
+	}
+}

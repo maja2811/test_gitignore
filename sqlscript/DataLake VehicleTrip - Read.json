@@ -1,0 +1,20 @@
+{
+	"name": "DataLake VehicleTrip - Read",
+	"properties": {
+		"folder": {
+			"name": "ivu/DataLake"
+		},
+		"content": {
+			"query": "SELECT TOP 1000 *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/IVU/FR_VehicleTrip.csv',\n        FORMAT = 'CSV',\n        HEADER_ROW = TRUE,\n        FIELDTERMINATOR = ';',\n        PARSER_VERSION = '2.0'\n    ) \nWITH (\n\t[validity_validityDate] date,\n\t[trainGroup_externalNumber] bigint,\n\t[beginLocation_externalNumber] bigint,\n\t[beginLocation_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[endLocation_externalNumber] bigint,\n\t[endLocation_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[trainGroup_startDate] date,\n\t[trainSection_beginTime] time(0),\n\t[trainSection_beginDayOffset] bigint,\n\t[BeginTimestamp] datetime2(0),\n\t[trainSection_endTime] time(0),\n\t[trainSection_endDayOffset] bigint,\n\t[EndTimestamp] datetime2(0),\n\t[trainSection_distance] bigint,\n\t[formationElement_elementIndexInFormation] bigint,\n\t[formationElement_vehicleWorkingIndexInFormation] bigint,\n\t[formationElement_carSortingNumber] bigint,\n\t[vehicle_type] nvarchar(4000),\n\t[vehicleType_abbreviation] nvarchar(4000),\n\t[vehicle_vehicleNumber] bigint,\n\t[vehicle_externalVehicleNumber] bigint,\n\t[vehicleWorking_type] nvarchar(4000),\n\t[vehicleWorking_description] nvarchar(4000),\n\t[trip_externalTripNumber] bigint,\n\t[trip_tripType] nvarchar(4000),\n\t[trip_route] nvarchar(4000),\n\t[trip_tripClass] nvarchar(4000),\n\t[predecessor_trainKey] bigint,\n\t[predecessor_validityDate] date,\n\t[predecessor_dayOffset] bigint,\n\t[predecessor_arrivalTime] time(0),\n\t[predecessor_arrivalTimestamp] datetime2(0),\n\t[predecessor_preDescription] nvarchar(4000),\n\t[successor_trainKey] bigint,\n\t[successor_validityDate] date,\n\t[successor_dayOffset] bigint,\n\t[successor_departureTime] time(0),\n\t[successor_departureTimetamp] datetime2(0),\n\t[successor_postDescription] nvarchar(4000),\n\t[Koereplan72timer] bigint,\n\t[SysValidFrom] datetime2(0),\n\t[SysValidTo] datetime2(0)\n) AS VehicleTrip\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"name": "030_Load to stage as dedicated",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/test"
+		},
+		"content": {
+			"query": "--CREATE SCHEMA sapcrm\n--GO\n\n\nIF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[sapcrm].[StageCLOYFPROL2]') AND type in (N'U'))\nDROP TABLE [sapcrm].[StageCLOYFPROL2]\nGO\n\nCREATE TABLE [sapcrm].[StageCLOYFPROL2]\n(\n    \"0BPARTNER\" NVARCHAR(10) NOT NULL,\n    \"0BPARTNER___T\" NVARCHAR(100) NULL ,\n    \"0BPROLE\" NVARCHAR(100) NULL,\n    \"0BPROLE___T\" NVARCHAR(100) NULL,\n    \"0BP_GROUP\" NVARCHAR(100) NULL,\n    \"0BP_GROUP___T\" NVARCHAR(100) NULL,\n    \"0BP_GUID\" NVARCHAR(100) NULL,\n    \"0BP_TYPE\" NVARCHAR(100) NULL,\n    \"0BP_TYPE___T\" NVARCHAR(100) NULL,\n    \"0FLGDELETED\" NVARCHAR(100) NULL,\n    \"0INFOPROV\" NVARCHAR(100) NULL,\n    \"0RECORDTP\" SMALLINT NULL,\n    \"0REQTSN\" NVARCHAR(100) NULL,\n    \"0VALIDFROM\" NVARCHAR(8)  NULL,\n    \"0VALIDTO\" NVARCHAR(8)  NULL  ,\n    \"1ROWCOUNT\" DECIMAL NULL ,\n    \"0BP_CAT\" NVARCHAR(1)  NULL ,\n    \"0BP_CAT___T\" NVARCHAR(100) NULL ,\n    \"0CREATEDON\" NVARCHAR(8)  NULL,\n    \"FP_SOURCE\" NVARCHAR(100) NULL,\n    \"FP_SOURCE___T\" NVARCHAR(100) NULL\n)\nWITH\n(\n    DISTRIBUTION = ROUND_ROBIN,\n    CLUSTERED COLUMNSTORE INDEX\n);\n\nCOPY INTO sapcrm.StageCLOYFPROL2\n    (   \"0BPARTNER\", \"0BPARTNER___T\", \"0BPROLE\", \"0BPROLE___T\", \"0BP_GROUP\", \"0BP_GROUP___T\", \"0BP_GUID\", \"0BP_TYPE\", \"0BP_TYPE___T\",\n    \"0FLGDELETED\", \"0INFOPROV\", \"0RECORDTP\", \"0REQTSN\", \"0VALIDFROM\", \"0VALIDTO\", \"1ROWCOUNT\", \"0BP_CAT\", \"0BP_CAT___T\",\n    \"0CREATEDON\", \"FP_SOURCE\", \"FP_SOURCE___T\"\n    )\nFROM 'https://datalakegen2atlasdev.dfs.core.windows.net/sandbox/datalakehouse-data_management_team/sapcrm/CLOYFPROL2.parquet'\nWITH\n(\n    FILE_TYPE = 'PARQUET',\n    MAXERRORS = 0,\n    IDENTITY_INSERT = 'OFF'\n);\nGO\n\nSELECT * FROM sapcrm.StageCLOYFPROL2\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlassqldev",
+				"poolName": "atlassqldev"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

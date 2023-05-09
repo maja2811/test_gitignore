@@ -1,0 +1,421 @@
+{
+	"name": "kunde_roller",
+	"properties": {
+		"Name": "kunde_roller",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "SAP_CRM",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "0BPROLE",
+					"Description": "customer role",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BPROLE___T",
+					"Description": "customer role text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_CAT",
+					"Description": "category",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_CAT___T",
+					"Description": "category text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_GROUP",
+					"Description": "group e.g. privat",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_GROUP___T",
+					"Description": "group text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_GUID",
+					"Description": "unique identifier",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_TYPE",
+					"Description": "customer id type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_TYPE___T",
+					"Description": "customer id text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_TYPE",
+					"Description": "customer type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_TYPE___T",
+					"Description": "customer type text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CREATEDON",
+					"Description": "created on date in integer: yyyy-mm-dd",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0FLGDELETED",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INFOPROV",
+					"Description": "Partner info",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0RECORDTP",
+					"Description": "found in e.g. kunde_billetter also",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "0REQTSN",
+					"Description": "found in e.g. kunde_billetter also",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0VALIDFROM",
+					"Description": "valid from date integer yyyymmdd",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0VALIDTO",
+					"Description": "valid to date integer yyyymmdd",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "FP_SOURCE",
+					"Description": "source",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER",
+					"Description": "customer ",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "1ROWCOUNT",
+					"Description": "row count",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "FP_SOURCE___T",
+					"Description": "source text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER___T",
+					"Description": "customer text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "f0191198-df28-4191-a05a-0adb52264bda",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYFPROL.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYFPROL.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "0BP_GUID",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "1",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"0BPROLE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BPROLE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_CAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_CAT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_GROUP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_GROUP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_GUID\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"0BP_ID_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_TYPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_TYPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CREATEDON\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0FLGDELETED\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INFOPROV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0RECORDTP\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REQTSN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0VALIDFROM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0VALIDTO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FP_SOURCE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"1ROWCOUNT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FP_SOURCE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 7,
+		"ObjectId": "94238e99-0575-4d84-90a5-e30dd8e68de8",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

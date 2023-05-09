@@ -1,0 +1,20 @@
+{
+	"name": "DataLake Train - Read",
+	"properties": {
+		"folder": {
+			"name": "ivu/DataLake"
+		},
+		"content": {
+			"query": "SELECT *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/IVU/FR_Train.csv',\n        FORMAT = 'CSV',\n        HEADER_ROW = TRUE,\n        FIELDTERMINATOR = ';',\n        PARSER_VERSION = '2.0'\n    ) AS Train",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

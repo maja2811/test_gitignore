@@ -1,0 +1,18 @@
+{
+	"name": "datalakegen2atlasdev_IotHub_Avro",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakegen2atlasdev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Avro",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

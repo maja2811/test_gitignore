@@ -1,0 +1,24 @@
+{
+	"name": "jeg_elsker_azure",
+	"properties": {
+		"description": "jeg_elsker_azure",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 10,
+				"startTime": "2023-03-27T11:22:00Z",
+				"endTime": "2023-03-28T11:22:00Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"hours": [
+						15
+					]
+				}
+			}
+		}
+	}
+}

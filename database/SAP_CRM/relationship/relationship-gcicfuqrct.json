@@ -1,0 +1,26 @@
+{
+	"name": "relationship-gcicfuqrct",
+	"properties": {
+		"Name": "relationship-gcicfuqrct",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "kunde_master",
+		"ToTableName": "azure_kundeid",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "0BP_GUID",
+				"ToColumnName": "0BP_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "c264141d-39c1-4887-8906-bfb5b46737d2"
+	},
+	"type": "RELATIONSHIP"
+}

@@ -1,0 +1,20 @@
+{
+	"name": "select_use_partitions",
+	"properties": {
+		"folder": {
+			"name": "protal/serverless"
+		},
+		"content": {
+			"query": "SELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/notebooks/uhhh/**',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE KoereDoegn_BKEY = 20220101\nAND TogNr in (11111111,1111111111)",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

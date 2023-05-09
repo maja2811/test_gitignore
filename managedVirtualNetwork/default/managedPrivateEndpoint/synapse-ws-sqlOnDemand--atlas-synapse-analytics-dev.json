@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sqlOnDemand--atlas-synapse-analytics-dev",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev",
+		"groupId": "sqlOnDemand",
+		"fqdns": [
+			"atlas-synapse-analytics-dev-ondemand.e3bb23f0-47b8-4ada-8e85-9a9cb5c2ad72.sql.azuresynapse.net"
+		]
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CLOYPOKO2 as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "DROP VIEW IF EXISTS sapcrm.view_CLOYPOKO2\nGO\n\nCREATE VIEW sap_crm.view_CLOYPOKO2 AS\nSELECT\n[0BPARTNER]\n,[0BPARTNER___T]\n,[0INFOPROV]\n,[0RECORDTP]\n,[0REQTSN]\n,[4CLOYPOKO2_BASIC_LVL]\n,[TOTPOINTS]\n,[TXNREASON___T]\n,[TXN_TYPE___T]\n,[ZBPARTNER]\n,[ZBPARTNER___T]\n,[POST_DATE]\n,[PROG_GUID___T]\n,[PSH_GUID___T]\n,[PT_TYPE___T]\n,[QUAL_TYPE___T]\n,[RRL_GUID___T]\n,[MSH_GUID]\n,[MSH_GUID___T]\n,[MSH_TYPE]\n,[MSH_TYPE___T]\n,[PATX_GUID]\n,[PATX_GUID___T]\n,[TXN_TYPE]\n,[1ROWCOUNT]\n,[ACTI_GUID___T]\n,[CAMP_CODE]\n,[CAMP_CODE___T]\n,[LOYPROGID___T]\n,[PROG_GUID]\n,[PSH_GUID]\n,[PT_TYPE]\n,[QUAL_TYPE]\n,[RRL_GUID]\n,[TXNREASON]\n,[4CLOYPOKO2_LIFETIME_LVL]\n,[4CLOYPOKO2_LOY_CAMP_ID]\n,[4CLOYPOKO2_LOY_RRL_ID]\n,[4CLOYPOKO2_PA_ID]\n,[ACTI_GUID]\n,[LOYPROGID]\nFROM\n    OPENROWSET(\n        BULK 'sapcrm/CLOYPOKO2.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS CLOYPOKO2;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

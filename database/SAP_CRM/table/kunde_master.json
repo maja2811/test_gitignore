@@ -1,0 +1,391 @@
+{
+	"name": "kunde_master",
+	"properties": {
+		"Name": "kunde_master",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "SAP_CRM",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "0BP_CAT",
+					"Description": "customer category",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_CAT___T",
+					"Description": "customer category text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_GROUP",
+					"Description": "customer group",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_GROUP___T",
+					"Description": "customer group text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_GUID",
+					"Description": "Unique ID (private, business it may not be unique)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_TYPE",
+					"Description": "customer type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_TYPE___T",
+					"Description": "customer type text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CREATEDON",
+					"Description": "date in yyyymmdd as integer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INFOPROV",
+					"Description": "partner info",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "FP_SOURCE",
+					"Description": "source",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "1ROWCOUNT",
+					"Description": "row count",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "FP_SOURCE___T",
+					"Description": "source text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER",
+					"Description": "customer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER___T",
+					"Description": "customer text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZEMAIL",
+					"Description": "email",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZMOB_COU",
+					"Description": "mobile country",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 2,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZMOB_NUM",
+					"Description": "mobile number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZPHO_COU",
+					"Description": "phon country",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 2,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZPHO_NUM",
+					"Description": "phone number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_TYPE",
+					"Description": "busines s partner (customer) id type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_TYPE___T",
+					"Description": "customer id type text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "4a0f6ed7-1635-4975-82a7-b72ecb52a9cb",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CCRMBPART.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CCRMBPART.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "Masterdata for kunder",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "0BP_GUID",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "1",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"0BP_CAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_CAT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_GROUP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_GROUP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_GUID\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"0BP_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_TYPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CREATEDON\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INFOPROV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FP_SOURCE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"1ROWCOUNT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FP_SOURCE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZEMAIL\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZMOB_COU\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZMOB_NUM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZPHO_COU\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZPHO_NUM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_TYPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 14,
+		"ObjectId": "9aa861f3-db56-4c3b-ac90-721baf4ffa08",
+		"Description": "Masterdata for kunder"
+	},
+	"type": "TABLE"
+}

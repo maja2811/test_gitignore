@@ -1,0 +1,17 @@
+{
+	"name": "Iot_test_sql",
+	"properties": {
+		"content": {
+			"query": "CREATE DATABASE iot_smarttrain_test\nWITH\n(\n    DATA_SOURCE = 'abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/database_test/*.snappy.parquet',\n    PROVISIONING = SHARED\n);",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "iot_smarttrain_test",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

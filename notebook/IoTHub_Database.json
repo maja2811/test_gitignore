@@ -1,0 +1,105 @@
+{
+	"name": "IoTHub_Database",
+	"properties": {
+		"folder": {
+			"name": "IoTHubDecodeStef"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "IoT",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "21382067-ec75-4771-bd9b-5b65bb559f14"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/IoT",
+				"name": "IoT",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/IoT",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"##%%sql\r\n",
+					"\r\n",
+					"##CREATE DATABASE IoT_SmartTrain_Test\r\n",
+					"##LOCATION 'abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/database_test/*.snappy.parquet' "
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE DATABASE iot_smarttrain_test\r\n",
+					"WITH\r\n",
+					"(\r\n",
+					"    DATA_SOURCE = 'abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/database_test/*.snappy.parquet',\r\n",
+					"    PROVISIONING = SHARED\r\n",
+					");"
+				],
+				"execution_count": 2
+			}
+		]
+	}
+}

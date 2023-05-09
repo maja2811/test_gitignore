@@ -1,0 +1,20 @@
+{
+	"name": "select_performance_tests",
+	"properties": {
+		"folder": {
+			"name": "protal/serverless"
+		},
+		"content": {
+			"query": "\n/****  Select pr. fysisk fil *********************************/\nSELECT  Koeredoegn_BKEY, count(*)\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_2022_01/A23EDA79-76A4-4506-ADF4-04FC0AEC099C_417_0-16.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY Koeredoegn_BKEY\nORDER BY KoereDoegn_BKEY\nGO\n\nSELECT  Koeredoegn_BKEY, count(*)\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_2022_01/A23EDA79-76A4-4506-ADF4-04FC0AEC099C_417_0-7.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY Koeredoegn_BKEY\nORDER BY KoereDoegn_BKEY\nGO\n\nSELECT  Koeredoegn_BKEY, count(*)\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_2022_01/A23EDA79-76A4-4506-ADF4-04FC0AEC099C_417_0-12.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY Koeredoegn_BKEY\nORDER BY KoereDoegn_BKEY\nGO\n\nSELECT  Koeredoegn_BKEY, count(*)\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_2022_01/A23EDA79-76A4-4506-ADF4-04FC0AEC099C_417_0-2.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nGROUP BY Koeredoegn_BKEY\nORDER BY KoereDoegn_BKEY\nGO\n\n\n/***** select 1 dag og 1 tog hvor opdelt PR. MD ********/\nSELECT  *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_2022_01',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE KoereDoegn_BKEY = 20220110\nAND TogNr = 10\nORDER BY KoereDoegn_BKEY, TogNr, Lokation_sekvens\nGO\n\n/***** select 1 dag og 1 tog hvor opdelt PR. ÅR ********/\nSELECT  *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_2022',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE KoereDoegn_BKEY = 20220110\nAND TogNr = 10\nORDER BY KoereDoegn_BKEY, TogNr, Lokation_sekvens\nGO\n\n/***** select 1 dag og 1 tog hvor IKKE opdelt - men ligger opdelt under mappen ********/\nSELECT  *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/DM/dm_fact_protal_tog_litra_full',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE KoereDoegn_BKEY = 20220110\nAND TogNr = 10\nORDER BY KoereDoegn_BKEY, TogNr, Lokation_sekvens\nGO\n\n/***** select 1 dag og 1 tog hvor IKKE opdelt  ********/\nSELECT  *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/dbo.dm_fact_Protal_Tog_Litra.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE KoereDoegn_BKEY = 20220110\nAND TogNr = 10\nORDER BY KoereDoegn_BKEY, TogNr, Lokation_sekvens\nGO\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

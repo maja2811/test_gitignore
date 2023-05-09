@@ -1,0 +1,20 @@
+{
+	"name": "DataLake Itinerary - Read",
+	"properties": {
+		"folder": {
+			"name": "ivu/DataLake"
+		},
+		"content": {
+			"query": "SELECT TOP 1000 * \nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/IVU/FR_Itinerary.csv',\n        FORMAT = 'CSV',\n        HEADER_ROW = TRUE,\n        FIELDTERMINATOR = ';',\n        PARSER_VERSION = '2.0'\n    ) \nWITH (\n\t[validity_validityDate] date,\n\t[trainGroup_externalNumber] bigint,\n\t[beginLocation_externalNumber] bigint,\n\t[beginLocation_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[endLocation_externalNumber] bigint,\n\t[endLocation_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[trainGroup_startDate] date,\n\t[trainSection_beginTime] time(0),\n\t[trainSection_beginDayOffset] bigint,\n\t[BeginTimestamp] datetime2(0),\n\t[trainSection_endTime] time(0),\n\t[trainSection_endDayOffset] bigint,\n\t[EndTimestamp] datetime2(0),\n\t[trainSection_distance] bigint,\n\t[location_externalNumber] bigint,\n\t[location_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[Station_sequence] bigint,\n\t[itineraryStop_operationalArrivalTime] time(0),\n\t[itineraryStop_operationalArrivalDayOffset] bigint,\n\t[ArrivalTimestamp] datetime2(0),\n\t[itineraryStop_operationalDepartureTime] time(0),\n\t[itineraryStop_operationalDepartureDayOffset] bigint,\n\t[DepartureTimestamp] datetime2(0),\n\t[Station_from] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[Station_from_externalNumber] bigint ,\n\t[Station_to] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t[Station_to_externalNumber] bigint,\n\t[itineraryStop_distance] bigint,\n\t[itineraryStop_passthrough] bigint,\n\t[itineraryStop_track] nvarchar(4000),\n\t[itineraryStop_networkTrainNumber] bigint,\n\t[itineraryStop_trainCategory] nvarchar(4000),\n\t[Koereplan72timer] bigint,\n\t[SysValidFrom] datetime2(0),\n\t[SysValidTo] datetime2(0)\n)  AS Itinerary\nORDER BY validity_validityDate, trainGroup_externalNumber, Station_sequence\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

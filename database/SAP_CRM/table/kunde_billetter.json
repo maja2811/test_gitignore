@@ -1,0 +1,1127 @@
+{
+	"name": "kunde_billetter",
+	"properties": {
+		"Name": "kunde_billetter",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "SAP_CRM",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "0BP_GUID",
+					"Description": "Unik nøgle på kunde",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INFOPROV",
+					"Description": "info",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0RECORDTP",
+					"Description": "",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "0REQTSN",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_ADD_ORDERED",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_AMOUNT_ZONES",
+					"Description": "Amount of zones",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_BOOKING_NR",
+					"Description": "booking number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_CHANGE_DATE",
+					"Description": "sales change date",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_CHANGE_TIME",
+					"Description": "sas change time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 6,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_COMMUTER_CAR",
+					"Description": "commuter car",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_CREATE_DATE",
+					"Description": "initial created date (sales date)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_CREATE_TIME",
+					"Description": "initial created time (sales time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 6,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_CURRENCY",
+					"Description": "currency",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 3,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_DELIVERY_EMA",
+					"Description": "delivery",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_EXT_CFNAME",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_EXT_CLNAME",
+					"Description": "customer/client name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_EXT_CUSTID",
+					"Description": "external customer id",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_EXT_ORDER",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_LASTLOGTIME",
+					"Description": "last logged time",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_LOGTIME",
+					"Description": "log time",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_MKT_PERM_IND",
+					"Description": "permission boolean (x when accepted)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_NUM_OF_ADULT",
+					"Description": "number of adults",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_NUM_OF_CHILD",
+					"Description": "number of children",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_NUM_OF_JUVEN",
+					"Description": "number of juveniles",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_NUM_OF_RTRDP",
+					"Description": "number of RTRDP",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_ORDERED_PROD",
+					"Description": "ordered product",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_REFUND",
+					"Description": "boolean refund",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "1ROWCOUNT",
+					"Description": "row count",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_CURRENCY___T",
+					"Description": "currenty text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_NUM_OF_ACCHI",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_PLACEOFBOOKI",
+					"Description": "place of booking",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_PLACEOFSALES",
+					"Description": "place of sales",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_PROCESS_NR",
+					"Description": "process nr",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_RECORDMODE_",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_SALES_REP",
+					"Description": "sales representative",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_SALE_DATE",
+					"Description": "sales date",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_SEAT_EXISTS",
+					"Description": "boolean: x ifseats booked ",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_SEAT_ID",
+					"Description": "if seat is booked an id of seat",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_SEAT_NO",
+					"Description": "if seat is booked seat number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TICKET_ID",
+					"Description": "ticket id",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRAIN_NR",
+					"Description": "train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRAIN_TYPE",
+					"Description": "train type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRIP_DURATIO",
+					"Description": "trip duration in minutes",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRV_END_DATE",
+					"Description": "travel end date",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRV_END_TIME",
+					"Description": "travel end time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRV_START_DA",
+					"Description": "travel start date",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TRV_START_TI",
+					"Description": "travel start time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_VALID_FROM_D",
+					"Description": "valid from day",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_VALID_FROM_T",
+					"Description": "valid from time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_VALID_TO_DAT",
+					"Description": "valid to date",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_VALID_TO_TIM",
+					"Description": "valid to time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "FRA_STAT",
+					"Description": "from station",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "FRA_ZONE",
+					"Description": "from zone",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "MSH_ID",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "TIL_STAT",
+					"Description": "to station",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "TIL_ZONE",
+					"Description": "to zone",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER",
+					"Description": "Client  / customer number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_REFUND_AMT",
+					"Description": "refund amount (if any)",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_TOTALPRICE",
+					"Description": "total price of the sale",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "FRA_STAT___T",
+					"Description": "from station name (text)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "FRA_ZONE___T",
+					"Description": "from station zone (text)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "MSH_ID___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "SALECHAN",
+					"Description": "sales channel",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "SALECHAN___T",
+					"Description": "sales channel text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "TIL_STAT___T",
+					"Description": "to station name (text)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "TIL_ZONE___T",
+					"Description": "to station name (text)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER___T",
+					"Description": "customer / client text / name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZWEBSTAH",
+					"Description": "website id",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESBI2_PAID_AMT",
+					"Description": "paid amount",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "ZZWEBSTAH___T",
+					"Description": "website text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "01a340b3-fbfc-4bb8-b45c-3a49c7b51f38",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CSALESBI2.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CSALESBI2.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "4CSALESBI2_BOOKING_NR",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "2",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"0BP_GUID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INFOPROV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0RECORDTP\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REQTSN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_ADD_ORDERED\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_AMOUNT_ZONES\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_BOOKING_NR\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"4CSALESBI2_CHANGE_DATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_CHANGE_TIME\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_COMMUTER_CAR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_CREATE_DATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_CREATE_TIME\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_DELIVERY_EMA\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_EXT_CFNAME\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_EXT_CLNAME\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_EXT_CUSTID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_EXT_ORDER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_LASTLOGTIME\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_LOGTIME\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_MKT_PERM_IND\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_NUM_OF_ADULT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_NUM_OF_CHILD\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_NUM_OF_JUVEN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_NUM_OF_RTRDP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_ORDERED_PROD\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_REFUND\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"1ROWCOUNT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_CURRENCY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_NUM_OF_ACCHI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_PLACEOFBOOKI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_PLACEOFSALES\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_PROCESS_NR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_RECORDMODE_\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_SALES_REP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_SALE_DATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_SEAT_EXISTS\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_SEAT_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_SEAT_NO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TICKET_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRAIN_NR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRAIN_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRIP_DURATIO\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRV_END_DATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRV_END_TIME\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRV_START_DA\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TRV_START_TI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_VALID_FROM_D\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_VALID_FROM_T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_VALID_TO_DAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_VALID_TO_",
+			"spark.sql.sources.schema.part.1": "TIM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FRA_STAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FRA_ZONE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"MSH_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"TIL_STAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"TIL_ZONE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_REFUND_AMT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_TOTALPRICE\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FRA_STAT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"FRA_ZONE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"MSH_ID___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SALECHAN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SALECHAN___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"TIL_STAT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"TIL_ZONE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZWEBSTAH\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESBI2_PAID_AMT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZWEBSTAH___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 9,
+		"ObjectId": "759f5fb9-b914-49c5-a728-7a1c52f84d91",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

@@ -1,0 +1,361 @@
+{
+	"name": "azure_kundeid",
+	"properties": {
+		"Name": "azure_kundeid",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "SAP_CRM",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "0BP_GUID",
+					"Description": "GUID for forretningspartner",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_DATE",
+					"Description": "FP: Dato på entry for identifikationsnummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_INST",
+					"Description": "FP: Ansvarlig institution for identifikationsnummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_NUM",
+					"Description": "FP: Identifikationsnummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_TYPE",
+					"Description": "FP: Identifikationsart",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_ID_TYPE___T",
+					"Description": "Customer ID type text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0COUNTRY",
+					"Description": "Landenøgle",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0COUNTRY___T",
+					"Description": "Country text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DATEFROM",
+					"Description": "Gyldig fra",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DATETO",
+					"Description": "Gyldig til",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0FLGDELETED",
+					"Description": "Indikator: Objekt slettet i kildesystem",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INFOPROV",
+					"Description": "InfoProvidor",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0RECORDTP",
+					"Description": "Recordtype",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "0REGION",
+					"Description": "Region",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0REGION___T",
+					"Description": "Region text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0REQTSN",
+					"Description": "Fortløbende transaktionsnummer for request",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER",
+					"Description": "CRM forretningspartner",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "1ROWCOUNT",
+					"Description": "Antal records",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER___T",
+					"Description": "Customer text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "a6c4d1b2-fd0c-4d8b-9f06-a9b2a214f0aa",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYFPID.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYFPID.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "0BP_GUID,0DATEFROM",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "1",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"0BP_GUID\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"0BP_ID_DATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_INST\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_NUM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_ID_TYPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0COUNTRY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0COUNTRY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DATEFROM\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"0DATETO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0FLGDELETED\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INFOPROV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0RECORDTP\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REGION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REGION___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REQTSN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"1ROWCOUNT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 10,
+		"ObjectId": "f26a3f27-9de3-4666-8e46-696a6f394f54",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

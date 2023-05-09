@@ -1,0 +1,1247 @@
+{
+	"name": "kunde_adresse",
+	"properties": {
+		"Name": "kunde_adresse",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "SAP_CRM",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "0BP_GUID",
+					"Description": "Unique ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INFOPROV",
+					"Description": "info as seen in other tables",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0RECORDTP",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "0REQTSN",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_ADDRCOMM",
+					"Description": "address communication",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_ADDRNUMBER",
+					"Description": "address number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_ADDR_SHORT",
+					"Description": "address short",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_ADDR_SHORT_S",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_BUILDING",
+					"Description": "building",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_CITY1",
+					"Description": "city 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_CITY2",
+					"Description": "city 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_CITYH_CODE",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_CITYP_CODE",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_CITY_CODE",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_CITY_CODE2",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_COUNTRY",
+					"Description": "country code ",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_DATE_FROM",
+					"Description": "date from",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_DATE_TO",
+					"Description": "date to",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_EXTENSION1",
+					"Description": "extension1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_EXTENSION2",
+					"Description": "extension2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_FAXDISPLAY",
+					"Description": "fax",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_FAX_EXTENS",
+					"Description": "fax extension",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_FAX_NUMBER",
+					"Description": "fax number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_FLOOR",
+					"Description": "floor",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_HOME_CITY",
+					"Description": "home city",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_HOUSE_NUM1",
+					"Description": "house number 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_HOUSE_NUM2",
+					"Description": "house number 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LANGU",
+					"Description": "language",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE0",
+					"Description": "address line",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE1",
+					"Description": "address line 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE2",
+					"Description": "address line 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE3",
+					"Description": " address line 3",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE4",
+					"Description": "address line 4",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE5",
+					"Description": "address line 5",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE6",
+					"Description": "address line 6",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE7",
+					"Description": "address line 7",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE8",
+					"Description": "address line 8",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LINE9",
+					"Description": "address line 9",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_LOCATION",
+					"Description": "location",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_NAME1",
+					"Description": "name1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_NAME2",
+					"Description": "name2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_NAME3",
+					"Description": "name 3",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_NAME4",
+					"Description": "name 4",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_NAME_CO",
+					"Description": "name co",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_NATION",
+					"Description": "nation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PERS_ADDR",
+					"Description": "personal address boolean",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_POST_CODE1",
+					"Description": "post code 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_POST_CODE2",
+					"Description": "post code 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_POST_CODE3",
+					"Description": "post code 3",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PO_BOX",
+					"Description": "po box",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PO_BOX_CTY",
+					"Description": "po box city",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PO_BOX_LOC",
+					"Description": "po box city",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PO_BOX_NUM",
+					"Description": "po box number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PO_BOX_REG",
+					"Description": "po box reg",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_PRECISID",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_REGIOGROUP",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_REGION",
+					"Description": "region",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_ROOMNUMBER",
+					"Description": "room number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_SMTP_ADDR",
+					"Description": "email",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_SORT1",
+					"Description": "sort 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_SORT2",
+					"Description": "sort 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_SRCID",
+					"Description": "srcid",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_STREET",
+					"Description": "street",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_STREETCODE",
+					"Description": "streetcode",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_STR_SUPPL1",
+					"Description": "storage supplier 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_STR_SUPPL2",
+					"Description": "storage supplier 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_STR_SUPPL3",
+					"Description": "storage supplier 3",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TAXJURCODE",
+					"Description": "tax code",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TELDISPLAY",
+					"Description": "tel display",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TEL_EXTENS",
+					"Description": "tel extension",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TEL_NUMBER",
+					"Description": "telephone number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TIME_ZONE",
+					"Description": "time zone",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 50,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TITLE",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_TRANSPZONE",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CLOYFPADD_URI_ADDR",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER",
+					"Description": "customer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "1ROWCOUNT",
+					"Description": "row number",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "ZBPARTNER___T",
+					"Description": "customer text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 255,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "ee196cdd-130c-44a2-b3d0-bebf505025d4",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYFPADD.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYFPADD.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "0BP_GUID,4CLOYFPADD_DATE_FROM",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "2",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"0BP_GUID\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"0INFOPROV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0RECORDTP\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REQTSN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_ADDRCOMM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_ADDRNUMBER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_ADDR_SHORT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_ADDR_SHORT_S\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_BUILDING\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_CITY1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_CITY2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_CITYH_CODE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_CITYP_CODE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_CITY_CODE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_CITY_CODE2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_COUNTRY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_DATE_FROM\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"4CLOYFPADD_DATE_TO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_EXTENSION1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_EXTENSION2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_FAXDISPLAY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_FAX_EXTENS\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_FAX_NUMBER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_FLOOR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_HOME_CITY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_HOUSE_NUM1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_HOUSE_NUM2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LANGU\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE0\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE4\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE5\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE6\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE7\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE8\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LINE9\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_LOCATION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_NAME1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_NAME2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_NAME3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_NAME4\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_NAME_CO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_NATION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PERS_ADDR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_POST_CODE1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_POST_CODE2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_POST_CODE3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PO_BOX\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PO_BOX_CTY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PO_BOX_LOC\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PO_BOX_N",
+			"spark.sql.sources.schema.part.1": "UM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PO_BOX_REG\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_PRECISID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_REGIOGROUP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_REGION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_ROOMNUMBER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_SMTP_ADDR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_SORT1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_SORT2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_SRCID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_STREET\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_STREETCODE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_STR_SUPPL1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_STR_SUPPL2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_STR_SUPPL3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TAXJURCODE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TELDISPLAY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TEL_EXTENS\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TEL_NUMBER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TIME_ZONE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TITLE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_TRANSPZONE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CLOYFPADD_URI_ADDR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"1ROWCOUNT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZBPARTNER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 7,
+		"ObjectId": "a70d3026-4eab-4c35-a6d1-e1cab16bd265",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

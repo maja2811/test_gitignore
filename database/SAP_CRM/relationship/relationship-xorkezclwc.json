@@ -1,0 +1,26 @@
+{
+	"name": "relationship-xorkezclwc",
+	"properties": {
+		"Name": "relationship-xorkezclwc",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "kunde_master",
+		"ToTableName": "salgsordrer",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ZBPARTNER",
+				"ToColumnName": "0CRM_SOLDTO"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "ffe84623-0c1f-448d-9102-6129bb80a7ca"
+	},
+	"type": "RELATIONSHIP"
+}

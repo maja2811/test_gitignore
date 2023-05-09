@@ -1,0 +1,20 @@
+{
+	"name": "021_Create usp for external table",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/SQL"
+		},
+		"content": {
+			"query": "ALTER PROCEDURE sapcrm.usp_roles_get_last_x_days (@InputDate DATE, @InputDays INT)\nAS\nBEGIN\n    DECLARE @Date INT \n    DECLARE @DateBackDays INT\n    --====================================================================================\n    --SET DEFAULT IF NO PARAMETER - START\n    --====================================================================================\n    IF (@InputDate IS NULL)\n       SET @Date = Convert(CHAR(8),GETDATE(),112);\n       SET @DateBackDays = Convert(CHAR(8),DATEADD(DAY, -365, GETDATE()),112);\n     --====================================================================================\n    --SET DEFAULT IF NO PARAMETER - END\n    --====================================================================================   \n    IF (@InputDate IS NOT NULL)\n       SET @Date = Convert(CHAR(8),@InputDate,112);\n       SET @DateBackDays = Convert(CHAR(8),DATEADD(DAY, @InputDays, @InputDate),112);\n    \n    --PRINT @Date \n    --PRINT @DateBackDays \n\n\t-- Drop the table if it already exists\n    IF EXISTS ( SELECT * FROM sys.external_tables WHERE object_id = OBJECT_ID('sapcrm.ExternalCLOYFPROL2') )\n        DROP EXTERNAL TABLE [sapcrm].[ExternalCLOYFPROL2]\n    \n\n    CREATE EXTERNAL TABLE sapcrm.ExternalCLOYFPROL2\n        WITH (\n            LOCATION = 'released/sapcrm/ExternalCLOYFPROL2/', \n            DATA_SOURCE = [zone-connected], --write location\n            FILE_FORMAT = ParquetFormat\n        )\n    AS\n    SELECT\n    [0BPARTNER___T]\n    ,[0BPROLE]\n    ,[0BPROLE___T]\n    ,[0BP_GROUP]\n    ,[0BP_GROUP___T]\n    ,[0CREATEDON]\n    ,[FP_SOURCE]\n    ,[FP_SOURCE___T]\n    ,[0REQTSN]\n    ,[0VALIDFROM]\n    ,[0VALIDTO]\n    ,[1ROWCOUNT]\n    ,[0BP_CAT]\n    ,[0BP_CAT___T]\n    ,[0BP_GUID]\n    ,[0BP_TYPE]\n    ,[0BP_TYPE___T]\n    ,[0FLGDELETED]\n    ,[0INFOPROV]\n    ,[0RECORDTP]\n    FROM\n        OPENROWSET(\n            BULK 'sapcrm/CLOYFPROL2.parquet',\n            DATA_SOURCE = 'sapcrm',\n            FORMAT='PARQUET'\n        ) AS CLOYFPROL2\n    WHERE [0CREATEDON] between @DateBackDays AND @Date;\n\n\nEND",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

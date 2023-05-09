@@ -1,0 +1,20 @@
+{
+	"name": "grant_permisson_select",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/security"
+		},
+		"content": {
+			"query": "\n--in master db\nCREATE LOGIN [SHIP.P_CRM_BONUS_KPI_2F] FROM EXTERNAL PROVIDER; \n\n--In your database \n--Alias: P_CRM_BONUS_KPI_2FSHIP.NP0.KOMMERCIEL_ALLE based on login that fetches active directory group. We keep same name to not create confusion\nCREATE USER [SHIP.P_CRM_BONUS_KPI_2F] FROM LOGIN [SHIP.P_CRM_BONUS_KPI_2F];\n\n--create schema and grant select to alias\nCREATE SCHEMA sapcrm\n\n--select acces to schema\nGRANT SELECT ON SCHEMA::sap_crm TO [SHIP.P_CRM_BONUS_KPI_2F]\n\n--deny acces to schema\nDENY SELECT ON SCHEMA::sap_crm TO [SHIP.P_CRM_BONUS_KPI_2F]\n\n--encryption to allow authentication by Managed Identity\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Synapse1234';\n\n--Create a credential using Managed Identity\nCREATE DATABASE SCOPED CREDENTIAL datalakegen2atlasdevManagedIdentity\nWITH IDENTITY='Managed Identity'\n\n--Create a data source to point to data lake\nCREATE EXTERNAL DATA SOURCE [zone-connected]\n    WITH (\n        LOCATION   = 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/',\n        CREDENTIAL = datalakegen2atlasdevManagedIdentity\n        );\n\n--we need to grant references on the MI credential\nGRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[datalakegen2atlasdevManagedIdentity] TO [SHIP.P_CRM_BONUS_KPI_2F];      \n\n\n--deny use of the OPENROWSET BULK command so that endusers can't access other external datasource \nUSE master;\nDENY ADMINISTER BULK OPERATIONS TO [SHIP.P_CRM_BONUS_KPI_2F];\n--Could it be\n\n--alternatively deny bulk operations on the public role\nUSE master;\nDENY ADMINISTER BULK OPERATIONS TO [public];\n\n\n--now user external datasource ExternalDataSourceDataLakeMI in in datasource in the view, see sample below:\ncreate VIEW sap_crm.view_CCRMBPART AS\nSELECT \n [0BP_CAT___T]\n,[0BP_GROUP]\n,[0BP_GROUP___T]\n,[0BP_GUID]\n,[0BP_TYPE]\n,[ZZPHO_NUM]\n,[0BP_ID_TYPE]\n--,[0BP_ID_TYPE___T]\n,[ZBPARTNER]\n,[ZBPARTNER___T]\n,[ZZEMAIL]\n,[ZZMOB_COU]\n,[ZZMOB_NUM]\n,[ZZPHO_COU]\n,[0BP_TYPE___T]\n,[0CREATEDON]\n,[0INFOPROV]\n,[FP_SOURCE]\n,[1ROWCOUNT]\n,[FP_SOURCE___T]\nFROM\n    OPENROWSET(\n        BULK 'released/sapcrm/notebooks/partitioned_data/CCRMBPART/**',\n        DATA_SOURCE = 'zone-connected',\n        FORMAT='PARQUET'\n    ) AS CCRMBPART;\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

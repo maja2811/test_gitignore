@@ -1,0 +1,20 @@
+{
+	"name": "090_create view dummy",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/SQL"
+		},
+		"content": {
+			"query": "CREATE VIEW sap_crm.dummy AS\nselect 'test1' as [Navn], 1 as [Antal]\nUNION\nselect 'test2' as [Navn], 2 as [Antal]\nUNION\nselect 'test3' as [Navn], 4 as [Antal]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

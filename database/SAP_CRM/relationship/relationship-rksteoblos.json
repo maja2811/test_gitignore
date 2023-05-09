@@ -1,0 +1,26 @@
+{
+	"name": "relationship-rksteoblos",
+	"properties": {
+		"Name": "relationship-rksteoblos",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "marketing_samtykker",
+		"ToTableName": "kunde_master",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "0BP_GUID",
+				"ToColumnName": "0BP_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "233de6ff-b6ce-4da6-a47d-70c537f9d9ad"
+	},
+	"type": "RELATIONSHIP"
+}

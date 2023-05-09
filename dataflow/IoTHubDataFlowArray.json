@@ -1,0 +1,55 @@
+{
+	"name": "IoTHubDataFlowArray",
+	"properties": {
+		"folder": {
+			"name": "IoTHubTestStef"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "datalakegen2atlasdev",
+						"type": "LinkedServiceReference"
+					},
+					"name": "IoTHubDataLakeStef"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "datalakegen2atlasdev",
+						"type": "LinkedServiceReference"
+					},
+					"name": "IoTHubLakeOutput"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     moveFiles: ['iothub-atlas-ext-dev/02/2023/03/08/13/*.avro','iothub-atlas-ext-dev/ArchiveDev/'],",
+				"     format: 'avro',",
+				"     fileSystem: 'iothub',",
+				"     wildcardPaths:['iothub-atlas-ext-dev/02/2023/03/08/13/*.avro']) ~> IoTHubDataLakeStef",
+				"IoTHubDataLakeStef derive(FileName = concat('IoTTestStef/Test/IoT_', toString(currentTimestamp(), 'yyyyMMdd_HHmmss'), '.parquet')) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     fileSystem: 'zone-connected',",
+				"     folderPath: 'IoTTestStef/Test',",
+				"     rowUrlColumn:'FileName',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> IoTHubLakeOutput"
+			]
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "Folder_ExternalCLOYFPROL2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakegen2atlasdev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "released/sapcrm/ExternalCLOYFPROL2",
+				"fileSystem": "zone-connected"
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

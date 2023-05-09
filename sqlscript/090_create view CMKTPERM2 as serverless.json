@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CMKTPERM2 as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "\nDROP VIEW IF EXISTS sapcrm.view_CMKTPERM2\nGO\n\nCREATE VIEW sap_crm.view_CMKTPERM2 AS\nSELECT\n [0BP_GUID]\n,[0INFOPROV]\n,[0RECORDTP]\n,[0REQTSN]\n,[4CMKTPERM2_PERMISSION]\n,[4CMKTPERM2_VALID_FROM]\n,[SAMTYFORM___T]\n,[4CMKTPERM2_ZZMKTPERM_TS]\n,[4CMKTPERM2_VALUE]\n,[CHANNEL]\n,[REC_GUID]\n,[1ROWCOUNT]\n,[CHANNEL___T]\n,[SAMTYFORM]\nFROM\n    OPENROWSET(\n        BULK 'sapcrm/CMKTPERM2.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS CMKTPERM2;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"name": "001_create external source sapcrm",
+	"properties": {
+		"description": "this takes a specific file in as an example",
+		"folder": {
+			"name": "sap_crm/data_source"
+		},
+		"content": {
+			"query": "--For analytics/developer who have access to synapse \nDROP EXTERNAL DATA SOURCE [sapcrm]\nCREATE EXTERNAL DATA SOURCE [sapcrm] WITH\n(\n\tLOCATION = 'https://datalakegen2atlasdev.dfs.core.windows.net/sandbox/datalakehouse-data_management_team/'\n)\n\n-- For the serverless setup we need to use a manaed identity to access, as the end-users also need access to the files.\n--Create a data source to point to data lake\nCREATE EXTERNAL DATA SOURCE [zone-connected]\n    WITH (\n        LOCATION   = 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected',\n        CREDENTIAL = datalakegen2atlasdevManagedIdentity\n        );\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

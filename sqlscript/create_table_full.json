@@ -1,0 +1,20 @@
+{
+	"name": "create_table_full",
+	"properties": {
+		"folder": {
+			"name": "protal/serverless"
+		},
+		"content": {
+			"query": "/*** create table ***************************************************************/\nIF EXISTS ( SELECT * FROM [atlas-srvless-sql-dev].sys.external_tables WHERE [name] = 'dm_fact_protal_tog_litra_full' ) \n\tBEGIN\n\t\tDROP EXTERNAL TABLE [atlas-srvless-sql-dev].Protal.dm_fact_protal_tog_litra_full\n\tEND\nGO\n\n\tCREATE EXTERNAL TABLE [atlas-srvless-sql-dev].Protal.dm_fact_protal_tog_litra_full\n\t\tWITH (\n\t\tLOCATION = 'protal/DM/dm_fact_protal_tog_litra_full',\n\t\tDATA_SOURCE = [zone-connected],\n\t\tFILE_FORMAT = [ParquetFormat]\n\t\t)\n\tAS\n\tSELECT *\n\tFROM\n    \tOPENROWSET(\n        \tBULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/dbo.dm_fact_Protal_Tog_Litra.parquet',\n        \tFORMAT = 'PARQUET'\n   \t\t) AS a\n\nGO\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

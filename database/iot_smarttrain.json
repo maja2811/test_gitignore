@@ -1,0 +1,25 @@
+{
+	"name": "iot_smarttrain",
+	"properties": {
+		"Name": "iot_smarttrain",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/database_test",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "datalakegen2atlasdev"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "022d5b69-0e0a-4502-b419-08755649aa84"
+	},
+	"type": "DATABASE"
+}

@@ -1,0 +1,4161 @@
+{
+	"name": "salgsordrer",
+	"properties": {
+		"Name": "salgsordrer",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "SAP_CRM",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "0BP_CONTPER",
+					"Description": "Kontaktperson",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_CONTPER___T",
+					"Description": "OBP_Kontaktperson_tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_EMPLO",
+					"Description": "Ansvarlig medarbejder",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_EMPLO___T",
+					"Description": "Ansvarlig medarbejder tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_RESPPER",
+					"Description": "Ansvarlig medarbejder",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0BP_RESPPER___T",
+					"Description": "Ansvarlig medarbejder tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CALDAY",
+					"Description": "Kalender dag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMPLEAGUI",
+					"Description": "GUID for foregående lead",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMPOPPGUI",
+					"Description": "GUID for foregående salgsmulighed",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMPOPPGUI___T",
+					"Description": "GUID for foregående salgsmulighed tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMPOSTDAT",
+					"Description": "Bogføringsdato for operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMPROD_ID",
+					"Description": "Produkt ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMSE_OG_R",
+					"Description": "Ansvarlig organisationsenhed",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRMSE_OG_R___T",
+					"Description": "Ansvarlig organisationsenhed tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_BILLTO",
+					"Description": "Fakturamodtager",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_BILLTO___T",
+					"Description": "Fakturamodtager tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_CAT",
+					"Description": "CRM Category",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_CAT___T",
+					"Description": "CRM category text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_CRD_AT",
+					"Description": "Operation oprettet dato",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_CTD_BY",
+					"Description": "Bruger der har oprettet operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 40,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_DIRECT",
+					"Description": "Retning",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_DIRECT___T",
+					"Description": "Retning tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_EXCDAT",
+					"Description": "Kursdato",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_EXCTYP",
+					"Description": "Kurstype",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_EXC_CC",
+					"Description": "Udførende interaction center",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_EXC_CC___T",
+					"Description": "Udførende interaction center tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITCHAT",
+					"Description": "Tidspunkt for sidste ændring af operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITCHBY",
+					"Description": "Operationsposition sidst ændret af",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 40,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITCRAT",
+					"Description": "Operation oprettet på dette tidspunkt",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITMGUI",
+					"Description": "GUID for CRM-ordreposition",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITMTYP",
+					"Description": "Positionsoperationsart",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITMTYP___T",
+					"Description": "CRM ",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITOBTP",
+					"Description": "Objekttype til CRM-positionsoperationsart",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ITOBTP___T",
+					"Description": "CRM ",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_LEADCR",
+					"Description": "Lead blev oprettet på dette tidspunkt",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_MKTELM",
+					"Description": "CRM-marketingelement (kampagne og marketingplan)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_MKTELM___T",
+					"Description": "CRM-marketingelement (kampagne og marketingplan) tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_NUMINT",
+					"Description": "Positionsnummer i bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_OBJ_ID",
+					"Description": "Operationsnummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_OPPCRD",
+					"Description": "Salgsmulighed blev oprettet på dette tidspunkt",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_ORDDAT",
+					"Description": "Bogføringsdato",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PAYERP",
+					"Description": "Betaler",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PAYERP___T",
+					"Description": "Betaler tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PCAT",
+					"Description": "Proceskatalog",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PCAT___T",
+					"Description": "Proceskatalog tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PGR",
+					"Description": "Proces, kodegruppe",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PGR___T",
+					"Description": "Proces, kodegruppe tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PRCTYP",
+					"Description": "Forretningsoperationsart",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PRCTYP___T",
+					"Description": "Forretningsoperationsart tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PRIDAT",
+					"Description": "Prisdato",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PROD",
+					"Description": "Produkt",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_PROD___T",
+					"Description": "Produkt tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 100,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_QUOGUI",
+					"Description": "GUID for tilbud",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_RSN_CO",
+					"Description": "Aktivitetsårsag (kode)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_RSN_CO___T",
+					"Description": "Aktivitetsårsag (kode) tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_RSN_GR",
+					"Description": "Aktivitetsårsag (kodegruppe)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_RSN_GR___T",
+					"Description": "Aktivitetsårsag (kodegruppe) tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_RSN_TY",
+					"Description": "Aktivitetsårsag (katalog)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_RSN_TY___T",
+					"Description": "Aktivitetsårsag (katalog) tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SALGRP",
+					"Description": "Salgsgruppe CRM",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SALGRP___T",
+					"Description": "Salgsgruppe CRM tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SALOFF",
+					"Description": "Salgskontor",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SALOFF___T",
+					"Description": "Salgskontor tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SALORG",
+					"Description": "Salgsorganisation CRM",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SALORG___T",
+					"Description": "Salgsorganisation CRM tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SOLDTO",
+					"Description": "Ordregiver",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SOLDTO___T",
+					"Description": "Odregiver tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SRVORG",
+					"Description": "Serviceorganisation CRM",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_SRVORG___T",
+					"Description": "Serviceorganisation CRM tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GROUP",
+					"Description": "Kundegruppe",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GROUP___T",
+					"Description": "Kundegruppe tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP1",
+					"Description": "Customer group 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP1___T",
+					"Description": "Customer group 1 text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP2",
+					"Description": "Customer group 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP2___T",
+					"Description": "Customer group 2 text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP3",
+					"Description": "Customer group 3",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP3___T",
+					"Description": "Customer group 3 text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP4",
+					"Description": "Customer group 4",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP4___T",
+					"Description": "Customer group 4 text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP5",
+					"Description": "Customer group 5",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CUST_GRP5___T",
+					"Description": "Customer group 5 text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DEB_CRED",
+					"Description": "Debit/credit indicator (K/D)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DISTR_CHAN",
+					"Description": "Salgskanal",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0CRM_NUMDOC",
+					"Description": "Antal bilagstoppe",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "0DISTR_CHAN___T",
+					"Description": "Salgskanal tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DIVISION",
+					"Description": "Division ",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DIVISION___T",
+					"Description": "Division tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DOC_CURRCY",
+					"Description": "Bilagsvaluta",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0DOC_CURRCY___T",
+					"Description": "Bilagsvaluta tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INDUSTRY",
+					"Description": "Brancenøgle",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INDUSTRY___T",
+					"Description": "Brancenøgle tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0INFOPROV",
+					"Description": "Infoprovidor",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0LOC_CURRCY",
+					"Description": "Intern valuta",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0LOC_CURRCY___T",
+					"Description": "Intern valuta tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0LOGSYS",
+					"Description": "Kildesystem",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0MATERIAL",
+					"Description": "Materiale",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0MATERIAL___T",
+					"Description": "Materiale tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ABNORMAL_DEM",
+					"Description": "Ekstraordinært behov",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ALTERNATIVE",
+					"Description": "GUID for operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BILLING_DATE",
+					"Description": "Fakturadato",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BILL_TO_PART",
+					"Description": "Fakturamodtager",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTLOCSYS1",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS0",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS2",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS5",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS7",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0NETPRICE",
+					"Description": "Net price/nettopris",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "0NETPRICE_CURRENCY",
+					"Description": "Net price currency/nettoværdi",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0PRELOGSYS",
+					"Description": "Kildesystem for foregående bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0PROD_DESCR",
+					"Description": "Produktbeskrivelse",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 70,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0RECORDTP",
+					"Description": "Recordtype",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "0REQTSN",
+					"Description": "Fortløbende transaktionsnummer for request",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0UNIT_OF_WT",
+					"Description": "Vægtenhed",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0UNIT_OF_WT___T",
+					"Description": "Vægtenhed tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BASE_QTY_UNI",
+					"Description": "Basismængdeenhed for produkt",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTLOCSYS2",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS1",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS3",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "1ROWCOUNT",
+					"Description": "Antal records",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BASE_QTY_UNI___T",
+					"Description": "CRM kundeordre position",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTLOCSYS0",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS6",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYS8",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTONESYSB",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTTECSYS0",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTTECSYS1",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BWSTTECSYS2",
+					"Description": "BW-status",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_BW_ASSIGN",
+					"Description": "Allokering BW og CO",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CATEGORY_ID",
+					"Description": "Kategori ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CHANGED_AT",
+					"Description": "Tidspunkt for seneste ændring af operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CHANGED_BY",
+					"Description": "Operation sidst ændret af",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CONFIRMED_DA",
+					"Description": "Seneste bekræftelsesdato for leveringsinddeling for position",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CONFPROD_ID",
+					"Description": "Produkt ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CUOBJ",
+					"Description": "Konfiguration (internt objektnummer)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CURRENCY",
+					"Description": "Valuta",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CUSTOMER_TYP",
+					"Description": "Forretningspartnerart",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DATE_QTY_FIX",
+					"Description": "Fast dato og mængde",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_END_CUSTOMER",
+					"Description": "Slutkunde (channel management)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_EXELOC_BP",
+					"Description": "Forretningspartner for udførende lokation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_EXE_LOC_NUMB",
+					"Description": "Char 20",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_EXT_REFOBJ",
+					"Description": "Eksternt referenceobjekt",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FACING_LOCTY",
+					"Description": "Ikke nærmere def. område, evt anvendeligt f. patch-niveauer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FIRSTS_LOCAT",
+					"Description": "Char 20",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CONFIRMED_QT",
+					"Description": "CRM: Bekræftet mængde",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_CURRENCY___T",
+					"Description": "CRM kundeordre position currency text",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DESCR_LANGUA",
+					"Description": "Sprognøgle for betegnelse",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FACING_LOCAT",
+					"Description": "Char 20",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DELIVERY_QTY",
+					"Description": "Leveret mængde for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DELIVERY_VAL",
+					"Description": "Leveret værdi for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DELIVERY_VAL_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DESCRIPTION",
+					"Description": "Beskrivelse på operation (store bogstaver)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DLV_RELEVANC",
+					"Description": "Leveringsrelevans",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_EXE_LOC_TYPE",
+					"Description": "Ikke nærmere def. område, evt anvendeligt f. patch-niveauer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FACLOC_BP",
+					"Description": "Forretningspartner for standardleveringslokation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FIRSTS_LOC_T",
+					"Description": "Ikke nærmere def. område, evt anvendeligt f. patch-niveauer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FLAG_ALT_ITM",
+					"Description": "Boolesk variabel (X=Sandt, *=Falsk, space=ukendt)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FLAG_STAT",
+					"Description": "Boolesk variabel (X=Sandt, *=Falsk, space=ukendt)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_OCCURRENCE",
+					"Description": "Tæller: Bilagstype forekommer mindst en gang i bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "0GROSS_WT",
+					"Description": "Bruttovægt",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_DELIV_QTY_SI",
+					"Description": "Leveret mængde for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FREIGHT",
+					"Description": "Fragtomkostninger i bilagsvaluta",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_FREIGHT_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_OCCURR_CONT",
+					"Description": "Tæller: Bilagstype forekommer mindst en gang i bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ODQ_CHANGEMO",
+					"Description": "Change mode for a data Record in Delta",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_GI_QTY_CUM",
+					"Description": "Vareafgangsmængde for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_GI_QTY_SINGL",
+					"Description": "Vareafgangsmængde for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_GROSS_VALUE",
+					"Description": "Total bruttoværdi for bilag i bilagsvaluta",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_GROSS_VALUE_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_HOM_FLAG",
+					"Description": "Ordreindikator fra scenario for hostet ordrestyring",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_INCOTERMS1",
+					"Description": "Incoterms del 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_INCOTERMS2",
+					"Description": "Incoterms del 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_OVERRIDE_LOC",
+					"Description": "Char 20",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_INVOICED_QTY",
+					"Description": "Faktureret mængde for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_INVOICED_VAL",
+					"Description": "Faktureret værdi for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_INVOICED_VAL_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_IOBJECT_ID",
+					"Description": "Produkt ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ITM_TYPE_USA",
+					"Description": "Positionstypeanvendelse",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ITM_USAGE",
+					"Description": "Anvendelse af overordnet position",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_LOC_EXT_NUMB",
+					"Description": "Eksternt nummer(remburs)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_LOC_GUID",
+					"Description": "Remburs-GUID for SAP Global Trade Services",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_OCCURR_QUOT",
+					"Description": "Tæller: Bilagstype forekommer mindst en gang i bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_NET_VALUE",
+					"Description": "Nettoværdi",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_NET_VALUE_CURRENCY",
+					"Description": "Saleschannel net value currency",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_NET_VALUE_H",
+					"Description": "Total nettoværdi for bilag i bilagsvaluta",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_NET_VALUE_H_CURRENCY",
+					"Description": "Saleschannel net value H currency",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_NET_WEIGHT",
+					"Description": "Nettovægt",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ORDER_QTY",
+					"Description": "CRM: Ordremængde",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_O_INV_QTY_CU",
+					"Description": "Åben mængde som skal faktureres for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_O_INV_VAL_CU",
+					"Description": "Åben værdi som skal faktureres for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_O_INV_VAL_CU_CURRENCY",
+					"Description": "Saleschannel invoice value CU currency",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_O_ORDER_QTY",
+					"Description": "Åben ordremængde for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_O_ORDER_VAL",
+					"Description": "Åben ordreværdi for position",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_O_ORDER_VAL_CURRENCY",
+					"Description": "Saleschannel  order value currency",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PARENT",
+					"Description": "GUID for operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PARTNER_PROD",
+					"Description": "Produktnummer for forretningspartner",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PATH_GUID",
+					"Description": "Sti-GUID for område 32",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PCAT_CTY_ID",
+					"Description": "Katalogområdenummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PCAT_HDR_ID",
+					"Description": "Produktkatalognummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PCAT_VRT_ID",
+					"Description": "Katalogvariantnummer",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PO_ITEM_NUMB",
+					"Description": "Positionsnummer i bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PO_NUMBER",
+					"Description": "Operations ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PRC_GROUP1",
+					"Description": "Produktgruppe 1",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PRC_GROUP2",
+					"Description": "Produktgruppe 2",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PRC_GROUP3",
+					"Description": "Produktgruppe 3",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PRC_GROUP4",
+					"Description": "Produktgruppe 4",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PRC_GROUP5",
+					"Description": "Produktgruppe 5",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PREDEC_OBJTY",
+					"Description": "Objekttype for foregående bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROCESS_CATE",
+					"Description": "Kategori for aktivitet (kommunikationsart)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROCESS_CODE",
+					"Description": "Kode",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROCESS_OBJT",
+					"Description": "Objekttype for foregående bilag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROCESS_QTY",
+					"Description": "Mængdeenhed i hvilken produkt sælges",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROCESS_QTY___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROD_OBJ_FAM",
+					"Description": "Objektfamilie",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_PROD_PR_GROU",
+					"Description": "Produktgruppe",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_QUOT_VALID_F",
+					"Description": "Gyldighedsstart tilbud",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_REF_CURRENCY",
+					"Description": "Referencevaluta",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_REF_CURRENCY___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_REF_UPDATE",
+					"Description": "IN: Referenceopdatering (ekstraktstruktur kun delvist udfyldt)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_REJECTION",
+					"Description": "Afslagsgrund",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_REPLACED_PRO",
+					"Description": "GUID for produkt Char32",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_REQUESTED_DA",
+					"Description": "Ordredato",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_RESP_AT_PART",
+					"Description": "Ansvarlig hos partner (Channel Management)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_RESP_GROUP",
+					"Description": "Ansvarlig gruppe",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_RJCTRS",
+					"Description": "Afvisningsårsag",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SALESPARTNER",
+					"Description": "Salgspartner",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SCENARIO",
+					"Description": "Identitet scenario",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SHIP_TO_PART",
+					"Description": "Varemodtager",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SOLD_FROM",
+					"Description": "Sælger ID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_STATUS_DELIV",
+					"Description": "Leveringsstatus (anvend kun for BW)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL1",
+					"Description": "Konditionsmellemtotal 1 fra kalkulationsskema",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL1_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL2",
+					"Description": "Konditionsmellemtotal 2 fra kalkulationsskema",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL2_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL3",
+					"Description": "Konditionsmellemtotal 3 fra kalkulationsskema",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL3_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL4",
+					"Description": "Konditionsmellemtotal 4 fra kalkulationsskema",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL4_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL5",
+					"Description": "Konditionsmellemtotal 5 fra kalkulationsskema",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL5_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL6",
+					"Description": "Konditionsmellemtotal 6 fra kalkulationsskema",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_SUBTOTAL6_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_TAX_AMOUNT",
+					"Description": "Momsbeløb i bilagsvaluta",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_TAX_AMOUNT_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_TERR_GUID",
+					"Description": "Område-GUID 32",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_VALID_FROM_D",
+					"Description": "Gyldighedsstart tilbud",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_VALID_TO_DAT",
+					"Description": "Gyldighedsslut tilbud",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_VOLUME_UNIT",
+					"Description": "Enhed for produktvolumen",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_VOLUME_UNIT___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_WEIGHT_UNIT",
+					"Description": "Vægtenhed",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_WEIGHT_UNIT___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "BSOBJTPE",
+					"Description": "Forretningsoperationstype",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "BSOBJTPE___T",
+					"Description": "Forretningsoperationstype tekst",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "BUS_GUID",
+					"Description": "GUID for operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "CRMITCRBY",
+					"Description": "Bruger der har oprettet operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "CRMITCRBY___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "CRMPOYEAR",
+					"Description": "Bogføringsår for operation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "EARLCNFRM",
+					"Description": "Tidligste bekræftelsesdato endnu ikke leveret",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "PRACTGUID",
+					"Description": "Preceding activity GUID",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "PRE_OBJKY",
+					"Description": "GUID of preceding transaction",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 80,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "SLSORGRSP",
+					"Description": "Ansvarlig salgsorganisation",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_VOLUME",
+					"Description": "Volumen som produkt optager pr. volumenenhed",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "SLSORGRSP___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ZZPAY_CUKY",
+					"Description": "Total på salgsordre (valuta)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ZZPAY_CUKY___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ZZPAY_VALUE",
+					"Description": "Total på salgsordre",
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 38,
+						"Scale": 18,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					}
+				},
+				{
+					"Name": "4CSALESOP2_ZZPAY_VALUE_CURRENCY",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZSALECHAN",
+					"Description": "Salgskanal",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZSALECHAN___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZPAYTYPE",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZPAYTYPE___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZWEBSTAH",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 60,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "ZZWEBSTAH___T",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 1000,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "02e0970e-b6c1-43ec-b739-019953a5b754",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CSALESOP2.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CSALESOP2.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "6",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"0BP_CONTPER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_CONTPER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_EMPLO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_EMPLO___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_RESPPER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0BP_RESPPER___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CALDAY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMPLEAGUI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMPOPPGUI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMPOPPGUI___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMPOSTDAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMPROD_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMSE_OG_R\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRMSE_OG_R___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_BILLTO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_BILLTO___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_CAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_CAT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_CRD_AT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_CTD_BY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_DIRECT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_DIRECT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_EXCDAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_EXCTYP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_EXC_CC\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_EXC_CC___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITCHAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITCHBY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITCRAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITMGUI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITMTYP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITMTYP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITOBTP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ITOBTP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_LEADCR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_MKTELM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_MKTELM___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_NUMINT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_OBJ_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_OPPCRD\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_ORDDAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PAYERP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PAYERP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PCAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PCAT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PGR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PGR___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PRCTYP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PRCTYP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PRIDAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PROD\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_PROD___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_QUOGUI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_RSN_CO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_RSN_CO___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_RSN_GR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_RSN_GR___T\",\"type\":\"string\",\"nullable\":true,\"metada",
+			"spark.sql.sources.schema.part.1": "ta\":{}},{\"name\":\"0CRM_RSN_TY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_RSN_TY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SALGRP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SALGRP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SALOFF\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SALOFF___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SALORG\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SALORG___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SOLDTO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SOLDTO___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SRVORG\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_SRVORG___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GROUP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GROUP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP1___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP2___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP3___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP4\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP4___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP5\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CUST_GRP5___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DEB_CRED\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DISTR_CHAN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0CRM_NUMDOC\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DISTR_CHAN___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DIVISION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DIVISION___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DOC_CURRCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0DOC_CURRCY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INDUSTRY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INDUSTRY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0INFOPROV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0LOC_CURRCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0LOC_CURRCY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0LOGSYS\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0MATERIAL\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0MATERIAL___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ABNORMAL_DEM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ALTERNATIVE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BILLING_DATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BILL_TO_PART\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTLOCSYS1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS0\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS5\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS7\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0NETPRICE\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0NETPRICE_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0PRELOGSYS\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0PROD_DESCR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0RECORDTP\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0REQTSN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0UNIT_OF_WT\",\"type\":\"string\",\"nullab",
+			"spark.sql.sources.schema.part.2": "le\":true,\"metadata\":{}},{\"name\":\"0UNIT_OF_WT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BASE_QTY_UNI\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTLOCSYS2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"1ROWCOUNT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BASE_QTY_UNI___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTLOCSYS0\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS6\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYS8\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTONESYSB\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTTECSYS0\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTTECSYS1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BWSTTECSYS2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_BW_ASSIGN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CATEGORY_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CHANGED_AT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CHANGED_BY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CONFIRMED_DA\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CONFPROD_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CUOBJ\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CUSTOMER_TYP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DATE_QTY_FIX\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_END_CUSTOMER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_EXELOC_BP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_EXE_LOC_NUMB\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_EXT_REFOBJ\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FACING_LOCTY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FIRSTS_LOCAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CONFIRMED_QT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_CURRENCY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DESCR_LANGUA\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FACING_LOCAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DELIVERY_QTY\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DELIVERY_VAL\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DELIVERY_VAL_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DESCRIPTION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DLV_RELEVANC\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_EXE_LOC_TYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FACLOC_BP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FIRSTS_LOC_T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FLAG_ALT_ITM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FLAG_STAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_OCCURRENCE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"0GROSS_WT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_DELIV_QTY_SI\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FREIGHT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_FREIGHT_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2",
+			"spark.sql.sources.schema.part.3": "_OCCURR_CONT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ODQ_CHANGEMO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_GI_QTY_CUM\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_GI_QTY_SINGL\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_GROSS_VALUE\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_GROSS_VALUE_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_HOM_FLAG\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_INCOTERMS1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_INCOTERMS2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_OVERRIDE_LOC\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_INVOICED_QTY\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_INVOICED_VAL\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_INVOICED_VAL_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_IOBJECT_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ITM_TYPE_USA\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ITM_USAGE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_LOC_EXT_NUMB\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_LOC_GUID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_OCCURR_QUOT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_NET_VALUE\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_NET_VALUE_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_NET_VALUE_H\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_NET_VALUE_H_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_NET_WEIGHT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ORDER_QTY\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_O_INV_QTY_CU\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_O_INV_VAL_CU\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_O_INV_VAL_CU_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_O_ORDER_QTY\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_O_ORDER_VAL\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_O_ORDER_VAL_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PARENT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PARTNER_PROD\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PATH_GUID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PCAT_CTY_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PCAT_HDR_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PCAT_VRT_ID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PO_ITEM_NUMB\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PO_NUMBER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PRC_GROUP1\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PRC_GROUP2\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PRC_GROUP3\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PRC_GROUP4\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PRC_GROUP5\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PREDEC_OBJTY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROCESS_CATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROCESS_CODE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROCESS_OBJT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROCESS_QTY\",\"typ",
+			"spark.sql.sources.schema.part.4": "e\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROCESS_QTY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROD_OBJ_FAM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_PROD_PR_GROU\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_QUOT_VALID_F\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_REF_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_REF_CURRENCY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_REF_UPDATE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_REJECTION\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_REPLACED_PRO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_REQUESTED_DA\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_RESP_AT_PART\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_RESP_GROUP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_RJCTRS\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SALESPARTNER\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SCENARIO\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SHIP_TO_PART\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SOLD_FROM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_STATUS_DELIV\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL1\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL1_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL2\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL2_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL3\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL3_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL4\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL4_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL5\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL5_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL6\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_SUBTOTAL6_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_TAX_AMOUNT\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_TAX_AMOUNT_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_TERR_GUID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_VALID_FROM_D\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_VALID_TO_DAT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_VOLUME_UNIT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_VOLUME_UNIT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_WEIGHT_UNIT\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_WEIGHT_UNIT___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"BSOBJTPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"BSOBJTPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"BUS_GUID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"CRMITCRBY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"CRMITCRBY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"CRMPOYEAR\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"EARLCNFRM\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"PRACTGUID\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"PRE_OBJKY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SLSORGRSP\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_VOLUME\",\"type\":\"decimal(38,18)\",\"nul",
+			"spark.sql.sources.schema.part.5": "lable\":true,\"metadata\":{}},{\"name\":\"SLSORGRSP___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ZZPAY_CUKY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ZZPAY_CUKY___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ZZPAY_VALUE\",\"type\":\"decimal(38,18)\",\"nullable\":true,\"metadata\":{}},{\"name\":\"4CSALESOP2_ZZPAY_VALUE_CURRENCY\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZSALECHAN\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZSALECHAN___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZPAYTYPE\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZPAYTYPE___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZWEBSTAH\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ZZWEBSTAH___T\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 46,
+		"ObjectId": "ffc94c5d-50da-4f68-b8c1-ee902fcffd27",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

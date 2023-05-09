@@ -1,0 +1,482 @@
+{
+	"name": "IoTHubDecodeStef_TestAvro",
+	"properties": {
+		"folder": {
+			"name": "IoTHubDecodeStef"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "812a387f-7104-473c-b70c-f6a7668813ec"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"8a7f368e-83f7-40dc-bc18-a39f87020562": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "2020-12-09T12:24:08.768Z",
+										"2": {
+											"connectionDeviceGenerationId": "637395849699595507",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"connectionDeviceId": "serkantest",
+											"contentType": "application/json",
+											"contentEncoding": "",
+											"enqueuedTime": "2020-12-09T12:24:08.768Z"
+										},
+										"3": "ew0KICAiSWQiOiAiZDQyZDg1MzItMjM1Ni00NTYwLTk3NTAtNDQwZDYzYThmM2I5IiwNCiAgIlRlbXBlcmF0dXJlIjogNywNCiAgIlRpbWUiOiAiMjAyMC0wMi0wNlQxMDozOTo0Ni44Mzc5ODk4KzAxOjAwIg0KfQ=="
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "EnqueuedTimeUtc",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "Properties",
+										"type": "MapType(StringType,StringType,true)"
+									},
+									{
+										"key": "2",
+										"name": "SystemProperties",
+										"type": "MapType(StringType,StringType,true)"
+									},
+									{
+										"key": "3",
+										"name": "Body",
+										"type": "BinaryType"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					},
+					"295ec9ab-cee1-4b15-91a0-a3983d539972": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "2023-03-08T13:05:56.87Z",
+										"2": {
+											"connectionDeviceId": "UG65_BI_Operation",
+											"connectionDeviceGenerationId": "638120509042598545",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"enqueuedTime": "2023-03-08T13:05:56.87Z"
+										},
+										"3": [
+											"{\"data\":\"A2cCAQRoOQ==\",\"obj\":{\"applicationID\":\"1\",\"applicationName\":\"cloud\",\"data\":\"A2cCAQRoOQ==\",\"devEUI\":\"24e124136b325536\",\"deviceName\":\"Temp2\",\"fCnt\":93,\"fPort\":85,\"rxInfo\":[{\"altitude\":0,\"latitude\":0,\"loRaSNR\":13.5,\"longitude\":0,\"mac\":\"24e124fffef3d367\",\"name\":\"Local Gateway\",\"rssi\":-42,\"time\":\"2023-03-08T13:05:56.013261Z\"}],\"time\":\"2023-03-08T13:05:56.013261Z\",\"txInfo\":{\"adr\":true,\"codeRate\":\"4/5\",\"dataRate\":{\"bandwidth\":125,\"modulation\":\"LORA\",\"spreadFactor\":7},\"frequency\":868300000}},\"port\":85}"
+										]
+									},
+									{
+										"0": "2023-03-08T13:06:52.897Z",
+										"2": {
+											"connectionDeviceId": "UG65_BI_Operation",
+											"connectionDeviceGenerationId": "638120509042598545",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"enqueuedTime": "2023-03-08T13:06:52.897Z"
+										},
+										"3": [
+											"{\"data\":\"AXVkA4IAAAQAAQ==\",\"obj\":{\"applicationID\":\"1\",\"applicationName\":\"cloud\",\"data\":\"AXVkA4IAAAQAAQ==\",\"devEUI\":\"24e124713b493593\",\"deviceName\":\"EM310-UDL-Operation\",\"fCnt\":47,\"fPort\":85,\"rxInfo\":[{\"altitude\":0,\"latitude\":0,\"loRaSNR\":11.5,\"longitude\":0,\"mac\":\"24e124fffef3d367\",\"name\":\"Local Gateway\",\"rssi\":-54,\"time\":\"2023-03-08T13:06:51.600508Z\"}],\"time\":\"2023-03-08T13:06:51.600508Z\",\"txInfo\":{\"adr\":true,\"codeRate\":\"4/5\",\"dataRate\":{\"bandwidth\":125,\"modulation\":\"LORA\",\"spreadFactor\":7},\"frequency\":868500000}},\"port\":85}"
+										]
+									},
+									{
+										"0": "2023-03-08T13:06:56.946Z",
+										"2": {
+											"connectionDeviceId": "UG65_BI_Operation",
+											"connectionDeviceGenerationId": "638120509042598545",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"enqueuedTime": "2023-03-08T13:06:56.946Z"
+										},
+										"3": [
+											"{\"data\":\"A2cDAQRoOQ==\",\"obj\":{\"applicationID\":\"1\",\"applicationName\":\"cloud\",\"data\":\"A2cDAQRoOQ==\",\"devEUI\":\"24e124136b325536\",\"deviceName\":\"Temp2\",\"fCnt\":94,\"fPort\":85,\"rxInfo\":[{\"altitude\":0,\"latitude\":0,\"loRaSNR\":11.5,\"longitude\":0,\"mac\":\"24e124fffef3d367\",\"name\":\"Local Gateway\",\"rssi\":-42,\"time\":\"2023-03-08T13:06:56.001106Z\"}],\"time\":\"2023-03-08T13:06:56.001106Z\",\"txInfo\":{\"adr\":true,\"codeRate\":\"4/5\",\"dataRate\":{\"bandwidth\":125,\"modulation\":\"LORA\",\"spreadFactor\":7},\"frequency\":868500000}},\"port\":85}"
+										]
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "EnqueuedTimeUtc",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "Properties",
+										"type": "MapType(StringType,StringType,true)"
+									},
+									{
+										"key": "2",
+										"name": "SystemProperties",
+										"type": "MapType(StringType,StringType,true)"
+									},
+									{
+										"key": "3",
+										"name": "Body",
+										"type": "ArrayType(StringType,true)"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"# Assuming you have an existing Spark session called `spark`\r\n",
+					"avro_input_path = \"abfss://iothub@datalakegen2atlasdev.dfs.core.windows.net/iothub-atlas-ext-dev/01/2020/12/09/12/24.avro\"\r\n",
+					"\r\n",
+					"# Read the Avro file into a DataFrame\r\n",
+					"df_read = spark.read.format(\"avro\").load(avro_input_path)\r\n",
+					"\r\n",
+					"# Print the schema of the DataFrame\r\n",
+					"df_read.printSchema()\r\n",
+					"df_read.show()\r\n",
+					"display(df_read.limit(10))"
+				],
+				"execution_count": 4
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import json\r\n",
+					"from datetime import datetime\r\n",
+					"\r\n",
+					"# read the dataframe\r\n",
+					"df = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/part-00000-ac14a8ae-b242-4873-920e-37b04f2497b4-c000.snappy.parquet', format='parquet')\r\n",
+					"\r\n",
+					"# initialize an empty list to store the data\r\n",
+					"data_list = []\r\n",
+					"\r\n",
+					"# loop through the rows\r\n",
+					"for row in df_read.collect():\r\n",
+					"    # parse the JSON string in the \"Body\" column\r\n",
+					"    json_data = json.loads(row.Body[0])\r\n",
+					"    # extract the \"data\" object inside the \"obj\" object\r\n",
+					"    \r\n",
+					"    data = json_data[\"obj\"][\"data\"]\r\n",
+					"    devEUI = json_data[\"obj\"][\"devEUI\"]\r\n",
+					"    #print(devEUI)\r\n",
+					"    deviceName = json_data[\"obj\"][\"deviceName\"]\r\n",
+					"    print(deviceName)\r\n",
+					"    # parse the \"data\" object as JSON\r\n",
+					"    port = json_data[\"obj\"][\"fPort\"]\r\n",
+					"    # retrieve the second string from the list\r\n",
+					"    # if there is a Z 0 offset\r\n",
+					"    # Extract the time from the JSON data\r\n",
+					"    timeUTCOffset = json_data[\"obj\"][\"time\"]\r\n",
+					"    print(data)\r\n",
+					"    print(port)\r\n",
+					"    # add the extracted data to the list\r\n",
+					"    #data_list.append(data)\r\n",
+					"\r\n",
+					"    # Parse the time string as a datetime object\r\n",
+					"    time_obj = datetime.fromisoformat(timeUTCOffset.replace(\"Z\", \"+00:00\"))\r\n",
+					"    time = time_obj.strftime(\"%Y-%m-%d %H:%M:%S\")\r\n",
+					"    # Print the time object in a more readable format\r\n",
+					"    print(time)\r\n",
+					"\r\n",
+					"    data_list.append({\"data\": data, \"port\": port, \"time\": time, \"devEUI\": devEUI, \"deviceName\": deviceName})   \r\n",
+					"#print the list of extracted data\r\n",
+					"print(data_list)\r\n",
+					""
+				],
+				"execution_count": 11
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import base64\r\n",
+					"\r\n",
+					"def decode_base64_and_print_hex(encoded_string):\r\n",
+					"    # Decode the Base64-encoded string\r\n",
+					"    decoded_bytes = base64.b64decode(encoded_string)\r\n",
+					"\r\n",
+					"    byte_list = [b for b in decoded_bytes]\r\n",
+					"    print(byte_list)\r\n",
+					"\r\n",
+					"    byte_result2 = []\r\n",
+					"    for x in byte_list:   \r\n",
+					"        byte_result2.append(hex(x))\r\n",
+					"\r\n",
+					"    print(byte_result2)\r\n",
+					"\r\n",
+					"    byte_result = []\r\n",
+					"    for num in byte_result2:\r\n",
+					"        if int(num, 16) < 10:\r\n",
+					"            byte_result.append('0x0' + num[2:])\r\n",
+					"        else:\r\n",
+					"            byte_result.append(num)\r\n",
+					"\r\n",
+					"    print('h', byte_result)\r\n",
+					"    return byte_result\r\n",
+					"\r\n",
+					"# Call the function with the encoded_string as an input\r\n",
+					"encoded_string = 'A2flAARoQw=='\r\n",
+					"result = decode_base64_and_print_hex(encoded_string)\r\n",
+					""
+				],
+				"execution_count": 6
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Define a bytes object with two elements\r\n",
+					"byte_result3 = bytes([int('0x7f', 16), int('0x00', 16)])\r\n",
+					"\r\n",
+					"# Extract the second byte (0x00) and shift it left by 8 bits,\r\n",
+					"# resulting in 0x0000. Use bitwise OR to combine the shifted value\r\n",
+					"# with the first byte (0x7f), resulting in 0x7f00.\r\n",
+					"shifted_bytes = bytes([(byte_result3[1] << 8) | byte_result3[0]])\r\n",
+					"\r\n",
+					"# Print the resulting bytes object as a hexadecimal string\r\n",
+					"print(hex(int.from_bytes(shifted_bytes, byteorder='big')))\r\n",
+					"# Output: 0x7f00\r\n",
+					""
+				],
+				"execution_count": 7
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"def decode(fPort, hex_strings):\r\n",
+					"    # Convert the hexadecimal strings to integers\r\n",
+					"    int_list = [int(hex_str, 16) for hex_str in hex_strings]\r\n",
+					"\r\n",
+					"    # Create a bytearray object from the list of integers\r\n",
+					"    byte_result = bytearray(int_list)\r\n",
+					"\r\n",
+					"    decoded = {}\r\n",
+					"\r\n",
+					"    i = 0\r\n",
+					"    while i < len(byte_result):\r\n",
+					"        channel_id = byte_result[i]\r\n",
+					"        i += 1\r\n",
+					"        channel_type = byte_result[i]\r\n",
+					"        i += 1\r\n",
+					"        print('Channel Id: ' + str(channel_id) + ' ' + 'Channel Type: ' + str(channel_type))\r\n",
+					"\r\n",
+					"        # BATTERY\r\n",
+					"        if channel_id == 0x01 and channel_type == 0x75:\r\n",
+					"            decoded['battery'] = byte_result[i]\r\n",
+					"            i += 1\r\n",
+					"        # TEMPERATURE\r\n",
+					"        elif channel_id == 0x03 and channel_type == 0x67:\r\n",
+					"            decoded['temperature'] = readInt16LE(byte_result[i:i+2]) / 10\r\n",
+					"            i += 2\r\n",
+					"        # HUMIDITY\r\n",
+					"        elif channel_id == 0x04 and channel_type == 0x68:\r\n",
+					"            decoded['humidity'] = byte_result[i] / 2\r\n",
+					"            i += 1\r\n",
+					"        else:\r\n",
+					"            break\r\n",
+					"    return decoded\r\n",
+					"\r\n",
+					"def readUInt16LE(bytes):\r\n",
+					"    value = (bytes[1] << 8) + bytes[0]\r\n",
+					"    return value & 0xffff\r\n",
+					"\r\n",
+					"def readInt16LE(bytes):\r\n",
+					"    ref = readUInt16LE(bytes)\r\n",
+					"    return ref - 0x10000 if ref > 0x7fff else ref\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 8
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"for data_dict in data_list:\r\n",
+					"    encoded_string = data_dict[\"data\"]\r\n",
+					"    port = data_dict[\"port\"]\r\n",
+					"    \r\n",
+					"    hex_strings = decode_base64_and_print_hex(encoded_string)\r\n",
+					"    decoded_result = decode(port, hex_strings)\r\n",
+					"    \r\n",
+					"    print(decoded_result)\r\n",
+					"    "
+				],
+				"execution_count": 9
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"\r\n",
+					"# Assuming you have an existing Spark session called `spark`\r\n",
+					"avro_input_path = \"abfss://iothub@datalakegen2atlasdev.dfs.core.windows.net/iothub-atlas-ext-dev/01/2020/12/09/12/24.avro\"\r\n",
+					"\r\n",
+					"# Read the Avro file into a DataFrame\r\n",
+					"df_read = spark.read.format(\"avro\").load(avro_input_path)\r\n",
+					"\r\n",
+					"# Print the schema of the DataFrame\r\n",
+					"df_read.printSchema()\r\n",
+					"df_read.show()\r\n",
+					"display(df.limit(10))\r\n",
+					""
+				],
+				"execution_count": 10
+			}
+		]
+	}
+}

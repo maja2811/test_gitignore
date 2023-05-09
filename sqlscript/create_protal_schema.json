@@ -1,0 +1,20 @@
+{
+	"name": "create_protal_schema",
+	"properties": {
+		"folder": {
+			"name": "protal/serverless"
+		},
+		"content": {
+			"query": "/*** create schema  ***************************************************/\nIF NOT EXISTS ( SELECT * FROM sys.schemas WHERE [name] = 'Protal')\n\tEXECUTE ('CREATE SCHEMA Protal authorization dbo')\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CLOYFPROL2 as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "\nDROP VIEW IF EXISTS sapcrm.view_CLOYFPROL2\nGO\n\nCREATE VIEW sap_crm.view_CLOYFPROL2 AS\nSELECT\n [0BPARTNER___T]\n,[0BPROLE]\n,[0BPROLE___T]\n,[0BP_GROUP]\n,[0BP_GROUP___T]\n,[0CREATEDON]\n,[FP_SOURCE]\n,[FP_SOURCE___T]\n,[0REQTSN]\n,[0VALIDFROM]\n,[0VALIDTO]\n,[1ROWCOUNT]\n,[0BP_CAT]\n,[0BP_CAT___T]\n,[0BP_GUID]\n,[0BP_TYPE]\n,[0BP_TYPE___T]\n,[0FLGDELETED]\n,[0INFOPROV]\n,[0RECORDTP]\nFROM\n    OPENROWSET(\n        BULK 'sapcrm/CLOYFPROL2.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS CLOYFPROL2;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

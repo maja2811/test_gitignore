@@ -1,0 +1,18 @@
+{
+	"name": "Granting access",
+	"properties": {
+		"description": "This scripts indicates how to grant either: object, schema or database rights to an AD group",
+		"content": {
+			"query": "--DECLARE @AdGroup NVARCHAR(100) = 'SHIP.P_WIREMIND'; -- Mandatory - Missing development... idea is to create a script where you just do inputs here + permissions below..\n--DECLARE @Database NVARCHAR(100) = 'atlas-srvless-sql-dev'; -- Mandatory\n--DECLARE @Object NVARCHAR(100) = 'sapcrm.ExternalCLOYFPROL2'; -- Optional\n--DECLARE @Schema NVARCHAR(100) = 'sapcrm'; -- Optional\n-- Only thing you need to actually change in the queries below is the permission you wish to grant\n-- We start on the master db\nUSE master;\nIF NOT EXISTS ( -- First we check if the login already exists. This is only made so that your script does not fail if it exists.\n    SELECT * FROM sys.server_principals WHERE name = 'SHIP.P_WIREMIND' AND default_database_name = 'master'\n)\nBEGIN\n    --in master db\n    CREATE LOGIN [SHIP.P_WIREMIND] FROM EXTERNAL PROVIDER; -- Always use product AD groups. This was purely to make an example\nEND\n\n--In your database \n--Alias: We create an alias called the same as the login in master DB: fetches active directory group. We keep same name to not create confusion\nUSE [atlas-srvless-sql-dev];\nCREATE USER [SHIP.P_WIREMIND] FROM LOGIN [SHIP.P_WIREMIND];\n\n-- ***************    Please comment out all of the grants that you do not wish to grant below   ********************\n--create schema and grant access to alias\nCREATE SCHEMA sapcrm \nGRANT SELECT ON SCHEMA::sapcrm TO [SHIP.P_WIREMIND]\n-- https://learn.microsoft.com/en-us/sql/t-sql/statements/grant-schema-permissions-transact-sql?view=sql-server-ver16\n\n-- Grant access to database. Please refer to documentation regarding existing roles\nALTER ROLE db_datareader -- grants reader access to db\nADD MEMBER [SHIP.P_WIREMIND]\n--Alternatively:\nGRANT SELECT ON DATABASE::[atlas-srvless-sql-dev] TO [SHIP.P_WIREMIND]\n--https://learn.microsoft.com/en-us/sql/t-sql/statements/grant-database-permissions-transact-sql?view=sql-server-ver16\n\n-- We grant access to a specific object in the database\nGRANT SELECT ON OBJECT::sapcrm.ExternalCLOYFPROL2 TO [SHIP.P_WIREMIND]\n--https://learn.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql?view=sql-server-ver16\n\n-- Furthermore, when doing this in a serverless setup, please do the following, so that end-users can actually access datalake data (serverless views, external tables):\n--encryption to allow authentication by Managed Identity\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Synapse1234';\n\n--Create a credential using Managed Identity\nCREATE DATABASE SCOPED CREDENTIAL datalakegen2atlasdevManagedIdentity\nWITH IDENTITY='Managed Identity'\n\n--Create a data source to point to data lake\nCREATE EXTERNAL DATA SOURCE [zone-connected]\n    WITH (\n        LOCATION   = 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected',\n        CREDENTIAL = datalakegen2atlasdevManagedIdentity\n        );\n\n--we need to grant references on the MI credential\nGRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[datalakegen2atlasdevManagedIdentity] TO [SHIP.P_WIREMIND];      \n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

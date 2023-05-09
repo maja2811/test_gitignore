@@ -1,0 +1,21 @@
+{
+	"name": "010_create external table serverless",
+	"properties": {
+		"description": "this is not working properly yet, as we are missing rights to write to the datalake. We may have to create a new data source for our \"core data lake\" and store it there instead. ...",
+		"folder": {
+			"name": "sap_crm/external_table"
+		},
+		"content": {
+			"query": "\nIF EXISTS ( SELECT * FROM sys.external_tables WHERE object_id = OBJECT_ID('sapcrm.ExternalCLOYFPROL2') )\n    DROP EXTERNAL TABLE [sapcrm].[ExternalCLOYFPROL2]\nGO\n CREATE EXTERNAL TABLE sapcrm.ExternalCLOYFPROL2\n     WITH (\n         LOCATION = 'released/sapcrm/aggregation/', \n         DATA_SOURCE = [zone-connected], --write location\n         FILE_FORMAT = ParquetFormat\n     )\n AS\n SELECT \"0BP_GROUP\",COUNT(*)ANT\n FROM\n     OPENROWSET(\n         BULK \n         'sapcrm/CLOYFPROL2.parquet',  \n         DATA_SOURCE = 'sapcrm', --read loacation\n         FORMAT = 'PARQUET'\n         --PARSER_VERSION = '2.0',\n         --HEADER_ROW = TRUE\n     ) AS EKSTERN\nGROUP BY \"0BP_GROUP\"\n\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

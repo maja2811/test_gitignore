@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CLOYFPROL as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "\nDROP VIEW IF EXISTS sapcrm.view_CLOYFPROL\nGO\n\nCREATE VIEW sap_crm.view_CLOYFPROL AS\nSELECT\n [0BPROLE]\n,[0BPROLE___T]\n,[0BP_CAT]\n,[0BP_CAT___T]\n,[0BP_GROUP]\n,[0BP_GROUP___T]\n,[FP_SOURCE]\n,[ZBPARTNER]\n,[1ROWCOUNT]\n,[FP_SOURCE___T]\n,[ZBPARTNER___T]\n,[0FLGDELETED]\n,[0INFOPROV]\n,[0RECORDTP]\n,[0REQTSN]\n,[0VALIDFROM]\n,[0VALIDTO]\n,[0BP_GUID]\n,[0BP_ID_TYPE]\n,[0BP_ID_TYPE___T]\n,[0BP_TYPE]\n,[0BP_TYPE___T]\n,[0CREATEDON]\nFROM\n    OPENROWSET(\n        BULK 'sapcrm/CLOYFPROL.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS CLOYFPROL;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

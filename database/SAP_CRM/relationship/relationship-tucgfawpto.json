@@ -1,0 +1,26 @@
+{
+	"name": "relationship-tucgfawpto",
+	"properties": {
+		"Name": "relationship-tucgfawpto",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "kunde_master",
+		"ToTableName": "kunde_roller",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "0BP_GUID",
+				"ToColumnName": "0BP_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "953a150e-5b45-4136-94a4-de1e0d8ee517"
+	},
+	"type": "RELATIONSHIP"
+}

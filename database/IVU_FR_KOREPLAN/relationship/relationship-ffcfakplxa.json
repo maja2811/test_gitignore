@@ -1,0 +1,38 @@
+{
+	"name": "relationship-ffcfakplxa",
+	"properties": {
+		"Name": "relationship-ffcfakplxa",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "IVU_FR_KOREPLAN"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "fr_itinerary",
+		"ToTableName": "fr_vehicletrip",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "validity_validityDate",
+				"ToColumnName": "validity_validityDate"
+			},
+			{
+				"FromColumnName": "trainGroup_externalNumber",
+				"ToColumnName": "trainGroup_externalNumber"
+			},
+			{
+				"FromColumnName": "beginLocation_externalNumber",
+				"ToColumnName": "beginLocation_externalNumber"
+			},
+			{
+				"FromColumnName": "endLocation_externalNumber",
+				"ToColumnName": "endLocation_externalNumber"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "ad64a372-0f7c-42c8-af8c-44f298011f94"
+	},
+	"type": "RELATIONSHIP"
+}

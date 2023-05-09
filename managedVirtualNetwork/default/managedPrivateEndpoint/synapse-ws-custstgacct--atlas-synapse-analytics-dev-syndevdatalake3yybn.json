@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-custstgacct--atlas-synapse-analytics-dev-syndevdatalake3yybn",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Storage/storageAccounts/syndevdatalake3yybn",
+		"groupId": "dfs",
+		"fqdns": [
+			"syndevdatalake3yybn.dfs.core.windows.net"
+		]
+	}
+}

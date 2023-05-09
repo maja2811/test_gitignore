@@ -1,0 +1,129 @@
+{
+	"name": "csv_to_parquet",
+	"properties": {
+		"activities": [
+			{
+				"name": "copy_and_change",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "zone-connected/@{'IVU/'}/@{'FR_Itinerary.csv'}"
+					},
+					{
+						"name": "Destination",
+						"value": "zone-connected/@{'IVU/lake_database/'}/@{'fr_itinerary'}"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "datalakegen2dev_csv",
+						"type": "DatasetReference",
+						"parameters": {
+							"directory": {
+								"value": "@pipeline().parameters.source_directory",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.source_file_name",
+								"type": "Expression"
+							},
+							"root_folder": {
+								"value": "@pipeline().parameters.source_root_folder",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "datalakegen2dev_file",
+						"type": "DatasetReference",
+						"parameters": {
+							"root_folder": {
+								"value": "@pipeline().parameters.sink_root_folder",
+								"type": "Expression"
+							},
+							"directory": {
+								"value": "@pipeline().parameters.sink_directory",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.sink_file_name",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"source_root_folder": {
+				"type": "string",
+				"defaultValue": "zone-connected"
+			},
+			"source_directory": {
+				"type": "string",
+				"defaultValue": "IVU"
+			},
+			"source_file_name": {
+				"type": "string",
+				"defaultValue": "FR_Itinerary.csv"
+			},
+			"sink_root_folder": {
+				"type": "string",
+				"defaultValue": "zone-connected"
+			},
+			"sink_directory": {
+				"type": "string",
+				"defaultValue": "IVU/lake_database/FR_Itinerary"
+			},
+			"sink_file_name": {
+				"type": "string",
+				"defaultValue": "fr_itinerary.parquet"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-03-27T11:11:21Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

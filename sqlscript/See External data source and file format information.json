@@ -1,0 +1,17 @@
+{
+	"name": "See External data source and file format information",
+	"properties": {
+		"content": {
+			"query": "--USE dbname;\n-- Simply add a where clause based on the data source name to find its details \nSELECT * FROM sys.external_data_sources WHERE name = 'sapcrm';\n\n-- Similar to the external file formats\nSELECT * FROM sys.external_file_formats;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

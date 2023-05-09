@@ -1,0 +1,66 @@
+{
+	"name": "sapcrm get roles for period",
+	"properties": {
+		"activities": [
+			{
+				"name": "Delete folder ExternalCLOYFPROL2",
+				"type": "Delete",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "Folder_ExternalCLOYFPROL2",
+						"type": "DatasetReference"
+					},
+					"enableLogging": false,
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					}
+				}
+			},
+			{
+				"name": "create_external_table_tablename",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Delete folder ExternalCLOYFPROL2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[sapcrm].[usp_roles_get_last_x_days]"
+				},
+				"linkedServiceName": {
+					"referenceName": "synapse_database",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"server_endpoint": "atlas-synapse-analytics-dev-ondemand.sql.azuresynapse.net",
+						"db_name": "atlas-srvless-sql-dev"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-03-13T14:00:37Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

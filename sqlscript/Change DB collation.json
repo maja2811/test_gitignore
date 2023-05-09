@@ -1,0 +1,18 @@
+{
+	"name": "Change DB collation",
+	"properties": {
+		"description": "UTF 8 latin used for now. But need to test with danish data.",
+		"content": {
+			"query": "SELECT * FROM sys.databases;\n\nUse master\ngo\nALTER DATABASE [atlas-srvless-sql-dev]  \nCOLLATE Danish_Norwegian_CI_AS",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

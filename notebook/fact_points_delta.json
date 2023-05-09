@@ -1,0 +1,1020 @@
+{
+	"name": "fact_points_delta",
+	"properties": {
+		"description": "we create fact points as a delta table",
+		"folder": {
+			"name": "sapcrm/delta_table"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": true,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "398e2ea9-cc3d-473a-85c8-1cbfc0d84210"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Load in data that needs to be transformed. Initial load first."
+				]
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"Generally refer to https://docs.databricks.com/delta/tutorial.html#upsert&language-python and the other links within the documentation"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#load in the the points file into a temporary view\r\n",
+					"lp = spark.read.load('abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYPOKO2.parquet', format='parquet')\r\n",
+					"display(lp.limit(1)) #Show a little data\r\n",
+					"lp.createOrReplaceTempView('loyalitet_pointkontooperationer') #create a temporary view to later use it to transform data\r\n",
+					""
+				],
+				"execution_count": 16
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"# We load in loyalitetmedlemsaktivitet\r\n",
+					"lma_df = spark.read.load('abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYMEDA2.parquet', format='parquet')\r\n",
+					"display(lma_df.limit(1)) # Show a little data\r\n",
+					"lma_df.createOrReplaceTempView('loyalitet_medlemsaktivitet') #create a temporary view to later use it to transform data"
+				],
+				"execution_count": 18
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#We then transform the data to the expected grain. We store a couple of days data first for testing purposes.\r\n",
+					"initial_fact_points = spark.sql(\"\"\" \r\n",
+					"    SELECT \r\n",
+					"        TO_DATE(ACT_DATE, 'yyyyMMdd') AS activity_date, \r\n",
+					"        CAST(LEFT(ACT_DATE,4) AS INT) AS activity_year, \r\n",
+					"        CAST(SUBSTR(ACT_DATE, 5, 2) AS INT) AS activity_month,\r\n",
+					"        lma.CATEGORY AS category,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE) AS process_type,\r\n",
+					"        SUM(lpk.TOTPOINTS) AS total_points    \r\n",
+					"    FROM loyalitet_medlemsaktivitet lma  \r\n",
+					"    INNER JOIN loyalitet_pointkontooperationer lpk ON lpk.MSH_GUID = lma.MENB_GUID\r\n",
+					"            AND lma.MEDL_GUID = lpk.ACTI_GUID\r\n",
+					"    WHERE lpk.0BPARTNER IS NOT NULL AND lma.ACT_DATE BETWEEN 20220101 AND 20220110 \r\n",
+					"    GROUP BY  \r\n",
+					"        lma.ACT_DATE,\r\n",
+					"        lma.CATEGORY,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE)\r\n",
+					"    \"\"\")\r\n",
+					"\r\n",
+					"display(initial_fact_points.limit(1))"
+				],
+				"execution_count": 19
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Next we set the path where we want to store a delta table and load the data into a delta table"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#Set the path of delta location\r\n",
+					"fact_points_delta_path = \"abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/sap_crm/delta/fact_points\"\r\n",
+					"print(fact_points_delta_path)"
+				],
+				"execution_count": 24
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"tags": []
+				},
+				"source": [
+					"#This will create a new folder with the data in a delta format based on the dataframe. Essentially writing to the table. If you wish to overwrite use .mode(\"overwrite\")\r\n",
+					"#Serverless views can be created on top of this to expose it. Partitioning is also an option.\r\n",
+					"initial_fact_points.write.format(\"delta\").save(fact_points_delta_path)"
+				],
+				"execution_count": 20
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Creating delta database using SQL and lakedatabase tables\r\n",
+					"-- We then create a database (lake database) which is where notebook tables can be stored\r\n",
+					"CREATE DATABASE IF NOT EXISTS sap_crm_delta -- if we do not do this, tables are stored in the default db"
+				],
+				"execution_count": 26
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#python: creates an external table based on the data frame. Can remove overwrite mode or set to append also. Please note external / managed tables are created in the catalog. This means Lake database default unless another database is specified.\r\n",
+					"#To create a managed table, ommit the option, generally use external tables however due to managed table limitations.\r\n",
+					"initial_fact_points.write.format(\"delta\").mode(\"overwrite\").option(\"path\", fact_points_delta_path).saveAsTable(\"sap_crm_delta.fact_points_external\")\r\n",
+					""
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"--Next we create an external table based on the delta location. Does the same as the cell above but in sql.\r\n",
+					"CREATE TABLE IF NOT EXISTS sap_crm_delta.fact_points \r\n",
+					"USING DELTA\r\n",
+					"LOCATION \"abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/sap_crm/delta/fact_points\"\r\n",
+					"/*Please note a table can also be created with no data where you insert data afterwards. See below\r\n",
+					"CREATE TABLE ManagedSalesOrders\r\n",
+					"(\r\n",
+					"    Orderid INT NOT NULL,\r\n",
+					"    OrderDate TIMESTAMP NOT NULL,\r\n",
+					"    CustomerName STRING,\r\n",
+					"    SalesTotal FLOAT NOT NULL\r\n",
+					")\r\n",
+					"USING DELTA \r\n",
+					"\r\n",
+					"INSERT OVERWRITE TABLE ManagedSalesOrders -- Overwrites current table with new data (or inserts if empty)\r\n",
+					"SELECT \r\n",
+					"    Orderid INT NOT NULL,\r\n",
+					"    OrderDate TIMESTAMP NOT NULL,\r\n",
+					"    CustomerName STRING,\r\n",
+					"    SalesTotal FLOAT NOT NULL\r\n",
+					"FROM Source\r\n",
+					"*/"
+				],
+				"execution_count": 37
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"DROP TABLE IF EXISTS sap_crm_delta.fact_points -- Now check the file system and note that the files are NOT deleted as this was an external table. Run query above to recreate."
+				],
+				"execution_count": 36
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"DESCRIBE EXTENDED sap_crm_delta.fact_points -- outputs extended metadata regarding table"
+				],
+				"execution_count": 8
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Alternative to above\r\n",
+					"# spark.sql(\"CREATE DATABASE AdventureWorks\")\r\n",
+					"# spark.sql(\"CREATE TABLE AdventureWorks.ProductsExternal USING DELTA LOCATION '{0}'\".format(delta_table_path))\r\n",
+					"# spark.sql(\"DESCRIBE EXTENDED AdventureWorks.ProductsExternal\").show(truncate=False)"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- test new delta table. The same table can now be used as a view source in a serverless DB. \r\n",
+					"SELECT\r\n",
+					"    *\r\n",
+					"FROM sap_crm_delta.fact_points \r\n",
+					"LIMIT 10"
+				],
+				"execution_count": 12
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Next we start the logic to continuously insert data into the delta table"
+				]
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"### Python"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"# Based on the latest date of loaded data we define next data period load. For actual jobs running, set up a parameter cell and give these parameters the values with e.g. lookups within a pipeline instead.\r\n",
+					"load_period = spark.sql(\"\"\"\r\n",
+					"    SELECT\r\n",
+					"    MAX(activity_date) AS max_activity_date\r\n",
+					"FROM sap_crm_delta.fact_points \r\n",
+					"\"\"\")\r\n",
+					"display(load_period.limit(1))\r\n",
+					"#Alternate way to load the data into a dataframe\r\n",
+					"#df = spark.read.load(fact_points_delta_path)\r\n",
+					"#display(df.limit(10))"
+				],
+				"execution_count": 13
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#Example on how to use the latest date and then create a period from it, converting it into integer after as the source has dates as integers.\r\n",
+					"from pyspark.sql.functions import col, date_add, to_date, date_format\r\n",
+					"load_period = load_period.withColumn(\"max_activity_date_1_days_added\", date_format(date_add(col(\"max_activity_date\"), 1), \"yyyyMMdd\").cast(\"int\")) # dateadd, change date format and cast to int\r\n",
+					"load_period = load_period.withColumn(\"max_activity_date_6_days_added\", date_format(date_add(col(\"max_activity_date\"), 6), \"yyyyMMdd\").cast(\"int\"))\r\n",
+					"display(load_period)\r\n",
+					"\r\n",
+					"#start_load_date = load_period.select('max_activity_date_1_days_added').collect()[0][0]\r\n",
+					"end_load_date = load_period.select('max_activity_date_6_days_added').collect()[0][0]\r\n",
+					"start_load_date = 20220114\r\n",
+					"print(start_load_date)\r\n",
+					"print(end_load_date)"
+				],
+				"execution_count": 14
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#We get the transformed data for newer dates. In this case used the above variables to load a total of 5 days. As we are joining we keep this to spark.sql()\r\n",
+					"new_source_data = spark.sql(f\"\"\" \r\n",
+					"    SELECT \r\n",
+					"        --ACT_DATE,\r\n",
+					"        TO_DATE(ACT_DATE, 'yyyyMMdd') AS activity_date, \r\n",
+					"        CAST(LEFT(ACT_DATE,4) AS INT) AS activity_year, \r\n",
+					"        CAST(SUBSTR(ACT_DATE, 5, 2) AS INT) AS activity_month,\r\n",
+					"        lma.CATEGORY AS category,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE) AS process_type,\r\n",
+					"        SUM(lpk.TOTPOINTS) AS total_points    \r\n",
+					"    FROM loyalitet_medlemsaktivitet lma  \r\n",
+					"    INNER JOIN loyalitet_pointkontooperationer lpk ON lpk.MSH_GUID = lma.MENB_GUID\r\n",
+					"            AND lma.MEDL_GUID = lpk.ACTI_GUID\r\n",
+					"    WHERE lpk.0BPARTNER IS NOT NULL AND lma.ACT_DATE BETWEEN {start_load_date} AND {end_load_date} -- 20220110 AND 20220115 \r\n",
+					"    GROUP BY  \r\n",
+					"        lma.ACT_DATE,\r\n",
+					"        lma.CATEGORY,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE)\r\n",
+					"    \"\"\")\r\n",
+					"\r\n",
+					"display(new_source_data.limit(1))"
+				],
+				"execution_count": 22
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"from delta.tables import *\r\n",
+					"from pyspark.sql.functions import *\r\n",
+					"\r\n",
+					"# Create a deltaTable object that we can use DML on. This will work for the delta table on the root folder whether there is a hive table on top or not.\r\n",
+					"fact_points_delta_table = DeltaTable.forPath(spark, fact_points_delta_path)"
+				],
+				"execution_count": 25
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#Using Merge to update/insert new data with pyspark with multiple conditions. THis works directly on the files. If we do this using hive, it would tell how many rows were updated, inserted or deleted.\r\n",
+					"#The condition is essentially SQL\r\n",
+					"#Note: Whether you do this on the hive table, based on the file path, or you updated using this path method, it will updated the same (hive table + delta table path are synced)\r\n",
+					"fact_points_delta_table.alias(\"sink\") \\\r\n",
+					"  .merge(\r\n",
+					"    new_source_data.alias(\"source\"),\r\n",
+					"    \"sink.activity_date = source.activity_date AND sink.process_type = source.process_type AND sink.category = source.category\") \\ \r\n",
+					"  .whenMatchedUpdate(\r\n",
+					"                      set = \r\n",
+					"                                { \r\n",
+					"                                  \"activity_date\": col(\"source.activity_date\"), \r\n",
+					"                                  \"activity_year\": col(\"source.activity_year\"),\r\n",
+					"                                  \"activity_month\": col(\"source.activity_month\"),\r\n",
+					"                                  \"category\": col(\"source.category\"),                            \r\n",
+					"                                  \"process_type\": col(\"source.process_type\"),\r\n",
+					"                                  \"total_points\": col(\"source.total_points\")\r\n",
+					"                              }\r\n",
+					"                      ) \\\r\n",
+					"  .whenNotMatchedInsert(\r\n",
+					"                        values = \r\n",
+					"                                {\r\n",
+					"                                  \"activity_date\": col(\"source.activity_date\"), \r\n",
+					"                                  \"activity_year\": col(\"source.activity_year\"),\r\n",
+					"                                  \"activity_month\": col(\"source.activity_month\"),\r\n",
+					"                                  \"category\": col(\"source.category\"),                            \r\n",
+					"                                  \"process_type\": col(\"source.process_type\"),\r\n",
+					"                                  \"total_points\": col(\"source.total_points\") \r\n",
+					"                                  }\r\n",
+					"                          ) \\\r\n",
+					"  .execute()\r\n",
+					"\r\n",
+					"\r\n",
+					"display(fact_points_delta_table.toDF())\r\n",
+					"\r\n",
+					"#df = spark.read.format(\"delta\").load(deltaTable)\r\n",
+					"#display(df.limit(10))\r\n",
+					""
+				],
+				"execution_count": 27
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#How to delete from a delta table using pyspark with a single condition\r\n",
+					"\r\n",
+					"# Declare the predicate by using a SQL-formatted string.\r\n",
+					"fact_points_delta_table.delete(\"activity_date = '2022-01-01'\")\r\n",
+					"\r\n",
+					"# Declare the predicate by using Spark SQL functions.\r\n",
+					"fact_points_delta_table.delete(col('activity_date') = '2022-01-01')"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#Updating a delta table using pyspark (generally use merge...)\r\n",
+					"# Declare the predicate by using a SQL-formatted string.\r\n",
+					"fact_points_delta_table.update(\r\n",
+					"  condition = \"activity_date = '2022-01-01'\",\r\n",
+					"  set = { \"activity_date\": \"'2022-01-02'\" }\r\n",
+					")\r\n",
+					"\r\n",
+					"# Declare the predicate by using Spark SQL functions.\r\n",
+					"fact_points_delta_table.update(\r\n",
+					"  condition = col('activity_date') == '2022-01-01',\r\n",
+					"  set = { 'activity_date': lit('2022-01-02') }\r\n",
+					")"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#Generally use merge. Else refer to documentation further up in regards to creating tables etc. \r\n",
+					"#Insert into a table is simply appending with another file\r\n",
+					"df.write.mode(\"append\").saveAsTable(\"people10m\")\r\n",
+					"\r\n",
+					"#Overwriting the complete table is also possible\r\n",
+					"df.write.mode(\"overwrite\").saveAsTable(\"people10m\")"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#Timetravel is also possible on delta tables. Please note, this uses system insert dates.\r\n",
+					"df1 = spark.read.format('delta').option('timestampAsOf', '2023-05-03').table(\"sap_crm_delta.fact_points\")\r\n",
+					"display(df1.limit(1))\r\n",
+					"df2 = spark.read.format('delta').option('versionAsOf', 0).table(\"sap_crm_delta.fact_points\")\r\n",
+					"display(df2.limit(1))\r\n",
+					""
+				],
+				"execution_count": 41
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"### SQL"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"# Based on the latest date of loaded data we define next data period load. For actual jobs running, set up a parameter cell and give these parameters the values with e.g. lookups within a pipeline instead.\r\n",
+					"#Note variables in pure SparkSQL does not work properly and this would be the way to do it.\r\n",
+					"load_period = spark.sql(\"\"\"\r\n",
+					"    SELECT\r\n",
+					"    --MAX(activity_date) AS max_activity_date,\r\n",
+					"    CAST(DATE_FORMAT(DATE_ADD(MAX(activity_date), 1), 'yyyyMMdd') AS INT) AS start_load_date, -- day after latest date\r\n",
+					"    CAST(DATE_FORMAT(DATE_ADD(MAX(activity_date), 6), 'yyyyMMdd') AS INT) AS end_load_date -- we load a total of 5 days at a time\r\n",
+					"   -- UNIX_TIMESTAMP(MAX(activity_date), 'yyyy-MM-dd') AS date_integer\r\n",
+					"FROM sap_crm_delta.fact_points \r\n",
+					"\"\"\")\r\n",
+					"display(load_period.limit(1))\r\n",
+					"#We then store the two values in variables to later use them for filtering what data to load\r\n",
+					"start_load_date = load_period.select('start_load_date').collect()[0][0]\r\n",
+					"end_load_date = load_period.select('end_load_date').collect()[0][0]\r\n",
+					"\r\n",
+					"# Since this focuses on an actual hive table we use spark.sql. However, pure python in regards to dateadd, and converting to integer is also a possibility. You could also refer to the deltatable by usnig the root folder using the from delta.tables import * "
+				],
+				"execution_count": 87
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#We get the transformed data for newer dates. In this case used the above variables to load a total of 5 days.\r\n",
+					"new_source_data = spark.sql(f\"\"\" \r\n",
+					"    SELECT \r\n",
+					"        --ACT_DATE,\r\n",
+					"        TO_DATE(ACT_DATE, 'yyyyMMdd') AS activity_date, \r\n",
+					"        CAST(LEFT(ACT_DATE,4) AS INT) AS activity_year, \r\n",
+					"        CAST(SUBSTR(ACT_DATE, 5, 2) AS INT) AS activity_month,\r\n",
+					"        lma.CATEGORY AS category,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE) AS process_type,\r\n",
+					"        SUM(lpk.TOTPOINTS) AS total_points    \r\n",
+					"    FROM loyalitet_medlemsaktivitet lma  \r\n",
+					"    INNER JOIN loyalitet_pointkontooperationer lpk ON lpk.MSH_GUID = lma.MENB_GUID\r\n",
+					"            AND lma.MEDL_GUID = lpk.ACTI_GUID\r\n",
+					"    WHERE lpk.0BPARTNER IS NOT NULL AND lma.ACT_DATE BETWEEN {start_load_date} AND {end_load_date} -- 20220110 AND 20220115 \r\n",
+					"    GROUP BY  \r\n",
+					"        lma.ACT_DATE,\r\n",
+					"        lma.CATEGORY,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE)\r\n",
+					"    \"\"\")\r\n",
+					"\r\n",
+					"display(new_source_data.limit(1))\r\n",
+					"new_source_data.createOrReplaceTempView('new_source_data') #we need a temporary view to merge with the hive table"
+				],
+				"execution_count": 90
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Another way of selecting data from delta table. \r\n",
+					"-- You could not refer to a hive table in other commands and use this instead also\r\n",
+					"SELECT * FROM delta.`abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/sap_crm/delta/fact_points` LIMIT 10\r\n",
+					""
+				],
+				"execution_count": 102
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Merge is essentially an UPSERT statement. Updates when matched and inserts when not. \r\n",
+					"MERGE INTO sap_crm_delta.fact_points AS sink\r\n",
+					"USING new_source_data AS source  \r\n",
+					"ON sink.activity_date = source.activity_date AND sink.process_type = source.process_type AND sink.category = source.category -- State keys to compare data on\r\n",
+					"WHEN MATCHED THEN UPDATE SET * -- * only works if columns are ordered in the same way. You can also choose to only update some columns. \r\n",
+					"WHEN NOT MATCHED THEN INSERT *"
+				],
+				"execution_count": 91
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Inserting data into table\r\n",
+					"INSERT INTO sap_crm_delta.fact_points SELECT * FROM new_source_data"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Updating data\r\n",
+					"UPDATE sap_crm_delta.fact_points SET total_points = 250 WHERE activity_date = '2022-01-05';"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Deleting data\r\n",
+					"DELETE FROM sap_crm_delta.fact_points WHERE activity_date = '2022-01-10'"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"--Timetravel is also possible. Please note this follows system dates.\r\n",
+					"SELECT * FROM sap_crm_delta.fact_points VERSION AS OF 0 LIMIT 5; -- we select version 0, first version\r\n",
+					"SELECT * FROM sap_crm_delta.fact_points TIMESTAMP AS OF '2023-05-06 00:37:58' LIMIT 5; -- we select based on the date data is valid from"
+				],
+				"execution_count": 35
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Final things to know"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#Timetravel can be used to restore table to previous versions and more fairly easy. See https://docs.databricks.com/delta/history.html"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# z-index is a possibility to improve performance https://docs.databricks.com/delta/data-skipping.html\r\n",
+					"#OPTIMIZE table_name\r\n",
+					"#ZORDER BY (column)"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#Vacuum unused data files https://docs.databricks.com/delta/vacuum.html\r\n",
+					"#VACUUM table_name"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"tags": [
+						"parameters"
+					]
+				},
+				"source": [
+					"#this is a parameter cell. Define any variable here and you can fill these with e.g. a lookup within a pipeline. Would be normal for e.g. daily data loads\r\n",
+					"pipeline_max_date = ''"
+				]
+			}
+		]
+	}
+}

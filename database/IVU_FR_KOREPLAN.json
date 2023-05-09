@@ -1,0 +1,25 @@
+{
+	"name": "IVU_FR_KOREPLAN",
+	"properties": {
+		"Name": "IVU_FR_KOREPLAN",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "datalakegen2atlasdev"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 32,
+		"ObjectId": "8f1bcf68-d682-47cd-afc1-c27747604596"
+	},
+	"type": "DATABASE"
+}

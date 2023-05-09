@@ -1,0 +1,20 @@
+{
+	"name": "Itinerary - Select",
+	"properties": {
+		"folder": {
+			"name": "ivu/Serverless"
+		},
+		"content": {
+			"query": "\nSELECT * \nFROM [atlas-srvless-sql-dev].IVU.FR_Itinerary\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "default",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

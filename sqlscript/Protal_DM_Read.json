@@ -1,0 +1,20 @@
+{
+	"name": "Protal_DM_Read",
+	"properties": {
+		"folder": {
+			"name": "ivu/Serverless"
+		},
+		"content": {
+			"query": "SELECT TOP 100 [koeredoegn]\n    ,[tog_nr]\n    --,[vogntur_start_station_UIC]\n    ,[vogntur_start_station_fork]\n    --,[vogntur_end_station_UIC]\n    ,[vogntur_end_station_fork]\n    ,[vogntur_start_tid]\n    ,[vogntur_end_tid]\n    ,[vogntur_distance]\n    --,[station_aktuel_UIC]\n    ,[station_aktuel_fork]\n    ,[station_sekvens]\n    ,tog_sekvens\n    ,[ank_tid]\n    ,[afg_tid]\n    ,[station_forrige]\n    ,[station_naeste]\n    ,[statmlm_next_distance]\n    ,[stop_type]\n    ,[spor]\n    ,[tog_kategori]\n    ,[Koereplan72timer]\n    ,[saet_nr]\n    ,[litra_type]\n    ,[litra_nr]\n    ,[trip_type]\n    ,[pre_tog_nr]\n    ,[pre_koeredoegn]\n    ,[pre_ank_tid]\n    ,[pre_ank_timestamp]\n    ,[post_tog_nr]\n    ,[post_koeredoegn]\n    ,[post_afg_tid]\n    ,[post_afg_timestamp]\nFROM [atlas-srvless-sql-dev].[IVU].[Protal_DM]\nWHERE tog_nr = 125\nAND litra_nr = 5095\nORDER BY koeredoegn, tog_nr, vogntur_start_tid, station_sekvens, litra_nr, saet_nr",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

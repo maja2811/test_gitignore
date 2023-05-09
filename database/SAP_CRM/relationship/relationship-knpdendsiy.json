@@ -1,0 +1,26 @@
+{
+	"name": "relationship-knpdendsiy",
+	"properties": {
+		"Name": "relationship-knpdendsiy",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "kunde_master",
+		"ToTableName": "kunde_adresse",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "0BP_GUID",
+				"ToColumnName": "0BP_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "76e2877a-9cef-4818-9df4-fa9071b44b01"
+	},
+	"type": "RELATIONSHIP"
+}

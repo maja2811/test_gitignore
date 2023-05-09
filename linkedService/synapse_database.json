@@ -1,0 +1,25 @@
+{
+	"name": "synapse_database",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"parameters": {
+			"server_endpoint": {
+				"type": "String",
+				"defaultValue": "atlas-synapse-analytics-dev-ondemand.sql.azuresynapse.net"
+			},
+			"db_name": {
+				"type": "string",
+				"defaultValue": "atlas-srvless-sql-dev"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=@{linkedService().server_endpoint};Initial Catalog=@{linkedService().db_name}"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

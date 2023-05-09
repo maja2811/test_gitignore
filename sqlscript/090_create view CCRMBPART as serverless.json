@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CCRMBPART as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "\nDROP VIEW IF EXISTS sapcrm.view_CCRMBPART\nGO\n\nCREATE VIEW sap_crm.view_CCRMBPART AS\nSELECT\n [0BP_CAT___T] AS kunde_kategori\n,[0BP_GROUP] AS kunde_gruppe\n,[0BP_GROUP___T] AS kunde_gruppe_tekst\n,[0BP_GUID] AS guid\n,[0BP_TYPE] AS kunde_type\n,[ZZPHO_NUM] AS telefon\n,[0BP_ID_TYPE] AS id_type\n--,[0BP_ID_TYPE___T]\n,[ZBPARTNER] AS [partner]\n,[ZBPARTNER___T] AS partner_tekst\n,[ZZEMAIL] AS email\n,[ZZMOB_COU] AS mobile_lande_kode\n,[ZZMOB_NUM] AS mobil\n,[ZZPHO_COU] AS telefon_lande_kode\n,[0BP_TYPE___T] AS type_tekst\n,[0CREATEDON] AS oprettet\n,[0INFOPROV] AS info\n,[FP_SOURCE] AS kilde\n,[1ROWCOUNT] AS raekke_taelling\n,[FP_SOURCE___T] AS kilde_tekst\nFROM\n    OPENROWSET(\n        BULK 'released/sapcrm/notebooks/partitioned_data/CCRMBPART/**',\n        DATA_SOURCE = 'zone-connected',\n        FORMAT='PARQUET'\n    ) AS CCRMBPART;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

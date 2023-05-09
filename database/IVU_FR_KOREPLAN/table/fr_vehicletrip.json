@@ -1,0 +1,716 @@
+{
+	"name": "fr_vehicletrip",
+	"properties": {
+		"Name": "fr_vehicletrip",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "IVU_FR_KOREPLAN",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "validity_validityDate",
+					"Description": "Køredøgn",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "trainGroup_externalNumber",
+					"Description": "Train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "beginLocation_externalNumber",
+					"Description": "Train section (vogntur) - Start station - UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "beginLocation_abbreviation",
+					"Description": "Train section (vogntur) - Start station - short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "endLocation_externalNumber",
+					"Description": "Train section (vogntur) - End station - UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "endLocation_abbreviation",
+					"Description": "Train section (vogntur) - End station short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainGroup_startDate",
+					"Description": "Train section (vogntur) - Begin date",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_beginTime",
+					"Description": "Train section (vogntur) - Begin time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_beginDayOffset",
+					"Description": "Train section (vogntur) - Begin Day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "BeginTimestamp",
+					"Description": "Train section (vogntur) - Begin timestamp",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_endTime",
+					"Description": "Train section (vogntur) - End time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_endDayOffset",
+					"Description": "Train section (vogntur) - End Day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "EndTimestamp",
+					"Description": "Train section (vogntur) - End timestamp",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_distance",
+					"Description": "Train section (vogntur) - distance in meters",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "formationElement_elementIndexInFormation",
+					"Description": "Logical placement of vehicle",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "formationElement_vehicleWorkingIndexInFormation",
+					"Description": "Logical placement of vehicle",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "formationElement_carSortingNumber",
+					"Description": "Door number",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "vehicle_type",
+					"Description": "Litra_type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "vehicleType_abbreviation",
+					"Description": "Litra_type short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "vehicle_vehicleNumber",
+					"Description": "Litra number (sæt ikke vogn)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "vehicle_externalVehicleNumber",
+					"Description": "Litra number (sæt ikke vogn)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "vehicleWorking_type",
+					"Description": "Litra_type",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "vehicleWorking_description",
+					"Description": "Litra description",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trip_externalTripNumber",
+					"Description": "Train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trip_tripType",
+					"Description": "If it is with or without passengers (rangering)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trip_route",
+					"Description": "Traincategory - combination",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trip_tripClass",
+					"Description": "If it is with or without passengers (rangering) - short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "predecessor_trainKey",
+					"Description": "Previous train section (vogntur) for the vehicle - train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "predecessor_validityDate",
+					"Description": "Previous train section (vogntur) for the vehicle - køredøgn",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "predecessor_dayOffset",
+					"Description": "Previous train section (vogntur) for the vehicle - day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "predecessor_arrivalTime",
+					"Description": "Previous train section (vogntur) for the vehicle - arrival time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "predecessor_arrivalTimestamp",
+					"Description": "Previous train section (vogntur) for the vehicle - arrival timestamp",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "predecessor_preDescription",
+					"Description": "Previous train section (vogntur) for the vehicle - description",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "successor_trainKey",
+					"Description": "Next train section (vogntur) for the vehicle - train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "successor_validityDate",
+					"Description": "Next train section (vogntur) for the vehicle - køredøgn",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "successor_dayOffset",
+					"Description": "Next train section (vogntur) for the vehicle - day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "successor_departureTime",
+					"Description": "Next train section (vogntur) for the vehicle - departure time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "successor_departureTimetamp",
+					"Description": "Next train section (vogntur) for the vehicle - departure timestamp",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "successor_postDescription",
+					"Description": "Next train section (vogntur) for the vehicle - description",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 30,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "Koereplan72timer",
+					"Description": "Indicator, that shows the version of the record 72 hours before planned",
+					"OriginDataTypeName": {
+						"TypeName": "short",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "short"
+						}
+					}
+				},
+				{
+					"Name": "SysValidFrom",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "SysValidTo",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "7da5e425-cad1-4375-a05c-6e97b92ea832",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database/FR_VehicleTrip",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database/FR_VehicleTrip",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "validity_validityDate,trainGroup_externalNumber,beginLocation_externalNumber,endLocation_externalNumber,formationElement_elementIndexInFormation",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "1",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"validity_validityDate\",\"type\":\"date\",\"nullable\":false,\"metadata\":{}},{\"name\":\"trainGroup_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"beginLocation_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"beginLocation_abbreviation\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"endLocation_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"endLocation_abbreviation\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainGroup_startDate\",\"type\":\"date\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_beginTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_beginDayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"BeginTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_endTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_endDayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"EndTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_distance\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"formationElement_elementIndexInFormation\",\"type\":\"integer\",\"nullable\":false,\"metadata\":{}},{\"name\":\"formationElement_vehicleWorkingIndexInFormation\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"formationElement_carSortingNumber\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicle_type\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicleType_abbreviation\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicle_vehicleNumber\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicle_externalVehicleNumber\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicleWorking_type\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vehicleWorking_description\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trip_externalTripNumber\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trip_tripType\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trip_route\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trip_tripClass\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predecessor_trainKey\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predecessor_validityDate\",\"type\":\"date\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predecessor_dayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predecessor_arrivalTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predecessor_arrivalTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"predecessor_preDescription\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"successor_trainKey\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"successor_validityDate\",\"type\":\"date\",\"nullable\":true,\"metadata\":{}},{\"name\":\"successor_dayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"successor_departureTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"successor_departureTimetamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"successor_postDescription\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Koereplan72timer\",\"type\":\"short\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SysValidFrom\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SysValidTo\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 16,
+		"ObjectId": "9193878c-d327-49b5-aabe-001e82c4b8b5",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

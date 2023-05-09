@@ -1,0 +1,360 @@
+{
+	"name": "delta_lake_example",
+	"properties": {
+		"folder": {
+			"name": "sapcrm/delta_table"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": true,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "f8190af7-42e6-4265-82d7-78ef2a18b131"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# **Link sample:\r\n",
+					"https://docs.delta.io/latest/quick-start.html#language-SQL\r\n",
+					"\r\n",
+					"https://microsoftlearning.github.io/mslearn-synapse/Instructions/Labs/05-Use-delta-lake.html\r\n",
+					"\r\n",
+					"Be aware of this sample is using SQL, you can also use Python, Scale as well"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#Set the path of delta location\r\n",
+					"delta_table_root = \"abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/\"\r\n",
+					"delta_table_path = delta_table_root + \"sap_crm/delta/CRMBPART\"\r\n",
+					"print(delta_table_path)\r\n",
+					"\r\n",
+					"#initial load from parquet\r\n",
+					"#df = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/released/sapcrm/notebooks/partitioned_data/CCRMBPART/Year=*/Month=*', format='parquet')\r\n",
+					"\r\n",
+					"# Write dataframe to delta table \r\n",
+					"#df.write.format(\"delta\").save(delta_table_path)"
+				],
+				"execution_count": 53
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#Get latest date from delta table\r\n",
+					"\r\n",
+					"from pyspark.sql.functions import max\r\n",
+					"\r\n",
+					"# Rename field in dataframe\r\n",
+					"df = df.withColumnRenamed('0CREATEDON', 'CREATEDON')\r\n",
+					"\r\n",
+					"# Get latest date / collect()[0][0] #first  column, first row\r\n",
+					"LastDate = df.select(max(df.CREATEDON)).na.fill(\"20140101\").collect()[0][0]\r\n",
+					"\r\n",
+					"print(LastDate)\r\n",
+					"\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 35
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"from delta.tables import *\r\n",
+					"from pyspark.sql.functions import *\r\n",
+					"\r\n",
+					"# Create a deltaTable object\r\n",
+					"deltaTable = DeltaTable.forPath(spark, delta_table_path)\r\n",
+					"\r\n",
+					"# Delete every row later than lastdate\r\n",
+					"#deltaTable.delete(condition = expr(f\"0CREATEDON >= {LastDate}\" ))\r\n",
+					"\r\n",
+					"# Get new data with variable latest date\r\n",
+					"newData = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/released/sapcrm/notebooks/partitioned_data/CCRMBPART/Year=*/Month=*', format='parquet').filter(f\"0CREATEDON >= {LastDate}\")\r\n",
+					"\r\n",
+					"# Using Merge to update/insert new data\r\n",
+					"deltaTable.alias(\"oldData\") \\\r\n",
+					"  .merge(\r\n",
+					"    newData.alias(\"newData\"),\r\n",
+					"    \"oldData.ZBPARTNER = newData.ZBPARTNER\") \\\r\n",
+					"  .whenMatchedUpdate(\r\n",
+					"                      set = \r\n",
+					"                                { \r\n",
+					"                                  \"ZBPARTNER\": col(\"newData.ZBPARTNER\"), \r\n",
+					"                                  \"ZBPARTNER___T\": col(\"newData.ZBPARTNER___T\"),\r\n",
+					"                                  \"0BP_GUID\": col(\"newData.0BP_GUID\"),\r\n",
+					"                                  \"FP_SOURCE\": col(\"newData.FP_SOURCE\"),                            \r\n",
+					"                                  \"0BP_ID_TYPE\": col(\"newData.0BP_ID_TYPE\"),\r\n",
+					"                                  \"FP_SOURCE___T\": col(\"newData.FP_SOURCE___T\"),\r\n",
+					"                                  \"0BP_TYPE\": col(\"newData.0BP_TYPE\"),\r\n",
+					"                                  \"0BP_TYPE___T\": col(\"newData.0BP_TYPE___T\"),                         \r\n",
+					"                                  \"0BP_CAT___T\": col(\"newData.0BP_CAT___T\"),\r\n",
+					"                                  \"0BP_GROUP\": col(\"newData.0BP_GROUP\"),\r\n",
+					"                                  \"0BP_GROUP___T\": col(\"newData.0BP_GROUP___T\"),\r\n",
+					"                                  \"0INFOPROV\": col(\"newData.0INFOPROV\"),\r\n",
+					"                                  \"ZZMOB_NUM\": col(\"newData.ZZMOB_NUM\"),\r\n",
+					"                                  \"ZZMOB_COU\": col(\"newData.ZZMOB_COU\"),                       \r\n",
+					"                                  \"ZZPHO_NUM\": col(\"newData.ZZPHO_NUM\"),\r\n",
+					"                                  \"ZZPHO_COU\": col(\"newData.ZZPHO_COU\"),\r\n",
+					"                                  \"ZZEMAIL\": col(\"newData.ZZEMAIL\"),                                                   \r\n",
+					"                                  \"0CREATEDON\": col(\"newData.0CREATEDON\"),\r\n",
+					"                                  \"1ROWCOUNT\": col(\"newData.1ROWCOUNT\")\r\n",
+					"                              }\r\n",
+					"                      ) \\\r\n",
+					"  .whenNotMatchedInsert(\r\n",
+					"                        values = \r\n",
+					"                                {\r\n",
+					"                                  \"ZBPARTNER\": col(\"newData.ZBPARTNER\"), \r\n",
+					"                                  \"ZBPARTNER___T\": col(\"newData.ZBPARTNER___T\"),\r\n",
+					"                                  \"0BP_GUID\": col(\"newData.0BP_GUID\"),\r\n",
+					"                                  \"FP_SOURCE\": col(\"newData.FP_SOURCE\"),                            \r\n",
+					"                                  \"0BP_ID_TYPE\": col(\"newData.0BP_ID_TYPE\"),\r\n",
+					"                                  \"FP_SOURCE___T\": col(\"newData.FP_SOURCE___T\"),\r\n",
+					"                                  \"0BP_TYPE\": col(\"newData.0BP_TYPE\"),\r\n",
+					"                                  \"0BP_TYPE___T\": col(\"newData.0BP_TYPE___T\"),                         \r\n",
+					"                                  \"0BP_CAT___T\": col(\"newData.0BP_CAT___T\"),\r\n",
+					"                                  \"0BP_GROUP\": col(\"newData.0BP_GROUP\"),\r\n",
+					"                                  \"0BP_GROUP___T\": col(\"newData.0BP_GROUP___T\"),\r\n",
+					"                                  \"0INFOPROV\": col(\"newData.0INFOPROV\"),\r\n",
+					"                                  \"ZZMOB_NUM\": col(\"newData.ZZMOB_NUM\"),\r\n",
+					"                                  \"ZZMOB_COU\": col(\"newData.ZZMOB_COU\"),                       \r\n",
+					"                                  \"ZZPHO_NUM\": col(\"newData.ZZPHO_NUM\"),\r\n",
+					"                                  \"ZZPHO_COU\": col(\"newData.ZZPHO_COU\"),\r\n",
+					"                                  \"ZZEMAIL\": col(\"newData.ZZEMAIL\"),                                                   \r\n",
+					"                                  \"0CREATEDON\": col(\"newData.0CREATEDON\"),\r\n",
+					"                                  \"1ROWCOUNT\": col(\"newData.1ROWCOUNT\")  \r\n",
+					"                                  }\r\n",
+					"                          ) \\\r\n",
+					"  .execute()\r\n",
+					"\r\n",
+					"\r\n",
+					"display(deltaTable.toDF())\r\n",
+					"\r\n",
+					"#df = spark.read.format(\"delta\").load(deltaTable)\r\n",
+					"#display(df.limit(10))\r\n",
+					""
+				],
+				"execution_count": 36
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#Time Travel\r\n",
+					"from delta.tables import *\r\n",
+					"from pyspark.sql.functions import *\r\n",
+					"\r\n",
+					"# Time travel\r\n",
+					"deltaTable = DeltaTable.forPath(spark, delta_table_path)\r\n",
+					"\r\n",
+					"# Modify the code you just ran as follows, specifying the option to use the time travel feature of delta lake to view a previous version of the data.\r\n",
+					"#version_df = spark.read.format(\"delta\").option(\"versionAsOf\", 0).load(delta_table_path)\r\n",
+					"#display(version_df.limit(10))\r\n",
+					"\r\n",
+					"timestamp_df = spark.read.format(\"delta\").option(\"timestampAsOf\", '2023-04-19 09:22:18').load(delta_table_path)\r\n",
+					"display(timestamp_df.limit(10))\r\n",
+					"\r\n",
+					"# The history of the last 20 changes to the table is shown - there should be two (the original creation, and the update you made.)\r\n",
+					"#deltaTable.history(20).show(20, False, True)"
+				],
+				"execution_count": 50
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE OR REPLACE VIEW c\r\n",
+					"    (ID COMMENT 'Unique identification number', Name) \r\n",
+					"    COMMENT 'View for experienced employees'\r\n",
+					"    AS SELECT * FROM delta.delta_table_path;\r\n",
+					"        WHERE working_years > 5;\r\n",
+					" \r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 51
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Create catalog tables - Create managed table\r\n",
+					"df.write.format(\"delta\").saveAsTable(\"atlas-srvless-sql-dev.CRMBPARTManaged\")\r\n",
+					"spark.sql(\"DESCRIBE EXTENDED atlas-srvless-sql-dev.CRMBPARTManaged\").show(truncate=False)"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"--#read data from delta table using sql \r\n",
+					"--SELECT count(*) FROM delta.`/amt/delta-table/sap_crm/CRMBPART`;\r\n",
+					"SELECT * FROM delta.`/delta/sap_crm/CRMBPART`;\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 11
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Update every even value by adding 100 to it\r\n",
+					"UPDATE delta.`/amt/delta-table/sap_crm/CRMBPART` SET id = id + 100 WHERE id % 2 == 0;\r\n",
+					"\r\n",
+					"-- Delete very even value\r\n",
+					"DELETE FROM delta.`/tmp/delta-table` WHERE id % 2 == 0;"
+				]
+			}
+		]
+	}
+}

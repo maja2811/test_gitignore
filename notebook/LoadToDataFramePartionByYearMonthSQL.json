@@ -1,0 +1,349 @@
+{
+	"name": "LoadToDataFramePartionByYearMonthSQL",
+	"properties": {
+		"folder": {
+			"name": "protal"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": true,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "7256ed3d-ed45-4675-ae6a-70daa6858454"
+			}
+		},
+		"metadata": {
+			"saveOutput": false,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"outputs_hidden": false
+					},
+					"collapsed": false
+				},
+				"source": [
+					"##hent data fra curated layer\r\n",
+					"df = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/protal/dbo.dm_fact_Protal_Tog_Litra.parquet', format='parquet')\r\n",
+					"##display(df.limit(3))\r\n",
+					"df.createOrReplaceTempView('protalTMP')\r\n",
+					"\r\n",
+					"##df2 = df.filter(df.KoereDoegn_BKEY < 20130101)\r\n",
+					"##df2 = df.filter((df.KoereDoegn_BKEY >= 20130101) & (df.KoereDoegn_BKEY < 20160101))\r\n",
+					"##df2 = df.filter((df.KoereDoegn_BKEY >= 20160101) & (df.KoereDoegn_BKEY < 20190101))\r\n",
+					"##df2 = df.filter(df.KoereDoegn_BKEY >= 20190101)\r\n",
+					"df2 = df.filter(df.KoereDoegn_BKEY >= 20230701)\r\n",
+					"\r\n",
+					"df2.createOrReplaceTempView(\"protalTMP\")\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 16
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"--Transform with sql, save as external table\r\n",
+					"SELECT * FROM protalTMP WHERE KoereDoegn_BKEY = 20220505\r\n",
+					""
+				],
+				"execution_count": 9
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"## Make external Hive table\r\n",
+					"## All partitions, that holds the in-memory data, are re-created\r\n",
+					"## The partition-key is used in the table-name, and is NOT included in the file!\r\n",
+					"\r\n",
+					"sql_transform = spark.sql(\"SELECT CAST(KoereDoegn_BKEY/100 AS INTEGER) AS KoereDoegn, * FROM protalTMP\")\r\n",
+					"display(sql_transform.limit(5))\r\n",
+					"sql_transform.write.partitionBy('KoereDoegn').saveAsTable('dm_fact_Protal_Tog_Litra', format='parquet', mode='overwrite', partitionOverwriteMode = 'dynamic', path='abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/protal/DM/notebooks/dm_fact_Protal_Tog_Litra')\r\n",
+					""
+				],
+				"execution_count": 19
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE DATABASE PROTAL_TRY\r\n",
+					"LOCATION 'abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/protal/DM' \r\n",
+					""
+				],
+				"execution_count": 18
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"## Make external Hive table in the database above\r\n",
+					"\r\n",
+					"sql_transform = spark.sql(\"SELECT CAST(KoereDoegn_BKEY/100 AS INTEGER) AS KoereDoegn, * FROM protalTMP\")\r\n",
+					"display(sql_transform.limit(5))\r\n",
+					"sql_transform.write.partitionBy('KoereDoegn').saveAsTable('PROTAL_TRY.dm_fact_Protal_Tog_Litra_Try', format='parquet', mode='overwrite', partitionOverwriteMode = 'dynamic', path='abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/protal/DM')\r\n",
+					""
+				],
+				"execution_count": 21
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Shows partitions\r\n",
+					"\r\n",
+					"SHOW PARTITIONS dm_fact_Protal_Tog_Litra"
+				],
+				"execution_count": 2
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"\r\n",
+					"INSERT INTO trytrytry  PARTITION (KoereDoegn = '20220101')\r\n",
+					"    VALUES (20220101,1111111111,1111)\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 24
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"DESCRIBE FORMATTED trytrytry;\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 25
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"-- Make an internal Hive table   --  CURRENTLY IT IS EXTERNAL\r\n",
+					"-- Creates a Delta table in default SPARK SQL Warehouse Directory\r\n",
+					"\r\n",
+					"ALTER TABLE PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small\r\n",
+					"  SET LOCATION 'abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/protal/DM/notebooks/PROTAL_LakeDB';\r\n",
+					"\r\n",
+					"\r\n",
+					"--DROP TABLE PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small;\r\n",
+					"\r\n",
+					"CREATE TABLE IF NOT EXISTS PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small (KoereDoegn_BKEY INT, TogNr INT, Lokation_sekvens INT);\r\n",
+					"--CREATE TABLE IF NOT EXISTS PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small (KoereDoegn_BKEY INT, TogNr INT, Lokation_sekvens INT) --USING Parquet LOCATION 'abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/protal/DM/notebooks/PROTAL_LakeDB';\r\n",
+					"INSERT INTO PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small VALUES (20220102, 22222222, 22222222);\r\n",
+					"SELECT * FROM PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small;\r\n",
+					"\r\n",
+					"DESCRIBE FORMATTED PROTAL_LakeDB.dm_fact_protal_tog_litra_2022_01small;\r\n",
+					"\r\n",
+					""
+				],
+				"execution_count": 53
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"set hive.metastore.warehouse.dir;\r\n",
+					"hive.metastore.warehouse.dir=/user/hive/warehouse"
+				],
+				"execution_count": 54
+			}
+		]
+	}
+}

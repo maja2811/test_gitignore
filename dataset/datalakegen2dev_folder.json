@@ -1,0 +1,37 @@
+{
+	"name": "datalakegen2dev_folder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakegen2atlasdev",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"root_folder": {
+				"type": "String",
+				"defaultValue": "zone-connected"
+			},
+			"directory": {
+				"type": "String",
+				"defaultValue": "released/sapcrm/ExternalCLOYFPROL2"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().directory",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().root_folder",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

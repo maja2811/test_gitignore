@@ -1,0 +1,20 @@
+{
+	"name": "fact_points",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "/* \n   specific scenario for delta load\n   we look at data from 2022-07-01 until 2022-08-29\n   We look at it, as if todays date is 2022-07-15\n   We pretend data cannot change for activity dates back in time\n   We need to be able to identify which data to load in (truncate load) and which we do not need to. Can we create external tables with multiple files? or do we need to create partitioned files and create views on top? What is possible with pipelines?\n   This specific data does not work exactly this way, as this is all on past data. However, to mimic a more difficult delta load, we pretend it works this way.\n   Ideally, we should be able to create external tables that creates multiple files on which we can decide to truncate load or not? (can be obtained by notebook partition + view and creating pipeline logic that needs to find out what to load../overwrite)\n*/\n\nDROP VIEW IF EXISTS sapcrm.fact_points\nGO\nCREATE VIEW sapcrm.fact_points AS\nSELECT \n    SUM(lpk.[TOTPOINTS]) AS total_points,\n    CAST(lma.[ACT_DATE] AS DATE) AS [activity_date],\n    lpk.[TXNREASON___T] AS reason,\n    lma.[CATEGORY] AS category\nFROM OPENROWSET(\n        BULK 'sapcrm/CLOYMEDA2.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS lma  \nLEFT JOIN  OPENROWSET(\n        BULK 'sapcrm/CLOYPOKO2.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS lpk ON lpk.[MSH_GUID] = lma.MENB_GUID\n        AND lma.MEDL_GUID = lpk.ACTI_GUID\nWHERE lpk.[0BPARTNER] IS NOT NULL AND lma.[ACT_DATE] BETWEEN 20220701 AND 20220731\nGROUP BY  \n    lma.[ACT_DATE],\n    lpk.[TXNREASON___T],\n    lma.[CATEGORY]\n--ORDER BY lma.[ACT_DATE]\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

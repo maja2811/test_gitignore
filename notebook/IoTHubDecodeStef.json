@@ -1,0 +1,353 @@
+{
+	"name": "IoTHubDecodeStef",
+	"properties": {
+		"folder": {
+			"name": "IoTHubDecodeStef"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "8035ed5e-e79f-40a3-84aa-ffde5cbfeb9e"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"81f2dc89-9e79-47ff-afcd-d7e9c4215947": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "2023-03-08T13:05:56.87Z",
+										"2": {
+											"connectionDeviceId": "UG65_BI_Operation",
+											"connectionDeviceGenerationId": "638120509042598545",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"enqueuedTime": "2023-03-08T13:05:56.87Z"
+										},
+										"3": [
+											"{\"data\":\"A2cCAQRoOQ==\",\"obj\":{\"applicationID\":\"1\",\"applicationName\":\"cloud\",\"data\":\"A2cCAQRoOQ==\",\"devEUI\":\"24e124136b325536\",\"deviceName\":\"Temp2\",\"fCnt\":93,\"fPort\":85,\"rxInfo\":[{\"altitude\":0,\"latitude\":0,\"loRaSNR\":13.5,\"longitude\":0,\"mac\":\"24e124fffef3d367\",\"name\":\"Local Gateway\",\"rssi\":-42,\"time\":\"2023-03-08T13:05:56.013261Z\"}],\"time\":\"2023-03-08T13:05:56.013261Z\",\"txInfo\":{\"adr\":true,\"codeRate\":\"4/5\",\"dataRate\":{\"bandwidth\":125,\"modulation\":\"LORA\",\"spreadFactor\":7},\"frequency\":868300000}},\"port\":85}"
+										]
+									},
+									{
+										"0": "2023-03-08T13:06:52.897Z",
+										"2": {
+											"connectionDeviceId": "UG65_BI_Operation",
+											"connectionDeviceGenerationId": "638120509042598545",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"enqueuedTime": "2023-03-08T13:06:52.897Z"
+										},
+										"3": [
+											"{\"data\":\"AXVkA4IAAAQAAQ==\",\"obj\":{\"applicationID\":\"1\",\"applicationName\":\"cloud\",\"data\":\"AXVkA4IAAAQAAQ==\",\"devEUI\":\"24e124713b493593\",\"deviceName\":\"EM310-UDL-Operation\",\"fCnt\":47,\"fPort\":85,\"rxInfo\":[{\"altitude\":0,\"latitude\":0,\"loRaSNR\":11.5,\"longitude\":0,\"mac\":\"24e124fffef3d367\",\"name\":\"Local Gateway\",\"rssi\":-54,\"time\":\"2023-03-08T13:06:51.600508Z\"}],\"time\":\"2023-03-08T13:06:51.600508Z\",\"txInfo\":{\"adr\":true,\"codeRate\":\"4/5\",\"dataRate\":{\"bandwidth\":125,\"modulation\":\"LORA\",\"spreadFactor\":7},\"frequency\":868500000}},\"port\":85}"
+										]
+									},
+									{
+										"0": "2023-03-08T13:06:56.946Z",
+										"2": {
+											"connectionDeviceId": "UG65_BI_Operation",
+											"connectionDeviceGenerationId": "638120509042598545",
+											"connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+											"enqueuedTime": "2023-03-08T13:06:56.946Z"
+										},
+										"3": [
+											"{\"data\":\"A2cDAQRoOQ==\",\"obj\":{\"applicationID\":\"1\",\"applicationName\":\"cloud\",\"data\":\"A2cDAQRoOQ==\",\"devEUI\":\"24e124136b325536\",\"deviceName\":\"Temp2\",\"fCnt\":94,\"fPort\":85,\"rxInfo\":[{\"altitude\":0,\"latitude\":0,\"loRaSNR\":11.5,\"longitude\":0,\"mac\":\"24e124fffef3d367\",\"name\":\"Local Gateway\",\"rssi\":-42,\"time\":\"2023-03-08T13:06:56.001106Z\"}],\"time\":\"2023-03-08T13:06:56.001106Z\",\"txInfo\":{\"adr\":true,\"codeRate\":\"4/5\",\"dataRate\":{\"bandwidth\":125,\"modulation\":\"LORA\",\"spreadFactor\":7},\"frequency\":868500000}},\"port\":85}"
+										]
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "EnqueuedTimeUtc",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "Properties",
+										"type": "MapType(StringType,StringType,true)"
+									},
+									{
+										"key": "2",
+										"name": "SystemProperties",
+										"type": "MapType(StringType,StringType,true)"
+									},
+									{
+										"key": "3",
+										"name": "Body",
+										"type": "ArrayType(StringType,true)"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/part-00000-ac14a8ae-b242-4873-920e-37b04f2497b4-c000.snappy.parquet', format='parquet')\r\n",
+					"display(df.limit(10))"
+				],
+				"execution_count": 90
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import json\r\n",
+					"\r\n",
+					"# read the dataframe\r\n",
+					"df = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IoTTestStef/part-00000-ac14a8ae-b242-4873-920e-37b04f2497b4-c000.snappy.parquet', format='parquet')\r\n",
+					"\r\n",
+					"# initialize an empty list to store the data\r\n",
+					"data_list = []\r\n",
+					"\r\n",
+					"# loop through the rows\r\n",
+					"for row in df.collect():\r\n",
+					"    # parse the JSON string in the \"Body\" column\r\n",
+					"    json_data = json.loads(row.Body[0])\r\n",
+					"    # extract the \"data\" object inside the \"obj\" object\r\n",
+					"    \r\n",
+					"    data = json_data[\"obj\"][\"data\"]\r\n",
+					"    # parse the \"data\" object as JSON\r\n",
+					"    # retrieve the second string from the list\r\n",
+					"    \r\n",
+					"    # add the extracted data to the list\r\n",
+					"    data_list.append(data)\r\n",
+					"\r\n",
+					"# print the list of extracted data\r\n",
+					"print(data_list)\r\n",
+					""
+				],
+				"execution_count": 91
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import base64\r\n",
+					"\r\n",
+					"# Decode the Base64-encoded string\r\n",
+					"encoded_string = 'A2flAARoQw=='\r\n",
+					"decoded_bytes = base64.b64decode(encoded_string)\r\n",
+					"byte_list = [b for b in decoded_bytes]\r\n",
+					"print(byte_list) \r\n",
+					"# Print out the decoded bytes as a list of integers"
+				],
+				"execution_count": 92
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"def decode(fPort, bytes):\r\n",
+					"    decoded = {}\r\n",
+					"\r\n",
+					"    i = 0\r\n",
+					"    while i < len(bytes):\r\n",
+					"        channel_id = bytes[i]\r\n",
+					"        channel_type = bytes[i + 1]\r\n",
+					"        print('Channel Id: ' + str(channel_id) + ' Channel Type: ' + str(channel_type))\r\n",
+					"\r\n",
+					"        # BATTERY\r\n",
+					"        if channel_id == 1 and channel_type == 75:\r\n",
+					"            decoded['battery'] = bytes[i + 2]\r\n",
+					"            i += 3\r\n",
+					"        # TEMPERATURE\r\n",
+					"        elif channel_id == 3 and channel_type == 67:\r\n",
+					"            decoded['temperature'] = readInt16LE([hex(bytes[i]),hex(bytes[i])]) / 10\r\n",
+					"            i += 4\r\n",
+					"\r\n",
+					"        else:\r\n",
+					"            break\r\n",
+					"\r\n",
+					"    return decoded\r\n",
+					"\r\n",
+					"def readUInt16LE(bytes):\r\n",
+					"    value = (bytes[1] << 8) + bytes[0]\r\n",
+					"    return value & 0xffff\r\n",
+					"\r\n",
+					"def readInt16LE(bytes):\r\n",
+					"    ref = readUInt16LE(bytes)\r\n",
+					"    return ref - 0x10000 if ref > 0x7fff else ref\r\n",
+					"\r\n",
+					"\r\n",
+					"bytes = byte_result\r\n",
+					"print(byte_result)\r\n",
+					"print(Decode(85, bytes))\r\n",
+					""
+				],
+				"execution_count": 94
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"def decode(fPort, bytes):\r\n",
+					"    decoded = {}\r\n",
+					"\r\n",
+					"    i = 0\r\n",
+					"    while i < len(bytes):\r\n",
+					"        channel_id = bytes[i]\r\n",
+					"        channel_type = bytes[i + 1]\r\n",
+					"        print('Channel Id: ' + str(channel_id) + ' Channel Type: ' + str(channel_type))\r\n",
+					"\r\n",
+					"        # BATTERY\r\n",
+					"        if channel_id == 1 and channel_type == 75:\r\n",
+					"            decoded['battery'] = bytes[i + 2]\r\n",
+					"            i += 3\r\n",
+					"        # TEMPERATURE\r\n",
+					"        elif channel_id == 3 and channel_type == 67:\r\n",
+					"            decoded['temperature'] = readInt16LE([hex(bytes[i]),hex(bytes[i])]) / 10\r\n",
+					"            i += 4\r\n",
+					"\r\n",
+					"        else:\r\n",
+					"            break\r\n",
+					"\r\n",
+					"    return decoded\r\n",
+					"\r\n",
+					"def readUInt16LE(bytes):\r\n",
+					"    value = (bytes[1] << 8) + bytes[0]\r\n",
+					"    return value & 0xffff\r\n",
+					"\r\n",
+					"def readInt16LE(bytes):\r\n",
+					"    ref = readUInt16LE(bytes)\r\n",
+					"    return ref - 0x10000 if ref > 0x7fff else ref\r\n",
+					"\r\n",
+					"\r\n",
+					"bytes = byte_result\r\n",
+					"print(byte_result)\r\n",
+					"print(Decode(85, bytes))\r\n",
+					""
+				],
+				"execution_count": 93
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				]
+			}
+		]
+	}
+}

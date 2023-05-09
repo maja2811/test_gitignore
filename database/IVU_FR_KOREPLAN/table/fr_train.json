@@ -1,0 +1,199 @@
+{
+	"name": "fr_train",
+	"properties": {
+		"Name": "fr_train",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "IVU_FR_KOREPLAN",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "validity_validityDate",
+					"Description": "Køredøgn",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "trainGroup_externalNumber",
+					"Description": "Train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainGroup_cancellation",
+					"Description": "If the train is cancelled",
+					"OriginDataTypeName": {
+						"TypeName": "short",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "short"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_division",
+					"Description": "If it is F&R or S-tog",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "train_trainKey",
+					"Description": "Train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 10,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "SysValidFrom",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "SysValidTo",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "Koereplan72timer",
+					"Description": "Indicator, that shows the version of the record 72 hours before planned",
+					"OriginDataTypeName": {
+						"TypeName": "short",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "short"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "b0195571-226e-424f-9077-68ed92f05933",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database/FR_Train",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database/FR_Train",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "validity_validityDate,trainGroup_externalNumber",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "1",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"validity_validityDate\",\"type\":\"date\",\"nullable\":false,\"metadata\":{}},{\"name\":\"trainGroup_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"trainGroup_cancellation\",\"type\":\"short\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_division\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"train_trainKey\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SysValidFrom\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SysValidTo\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Koereplan72timer\",\"type\":\"short\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 5,
+		"ObjectId": "024f7540-a4d5-44d1-acd8-6d1eeb1a9635",
+		"Description": ""
+	},
+	"type": "TABLE"
+}

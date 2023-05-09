@@ -1,0 +1,21 @@
+{
+	"name": "create_table_2022",
+	"properties": {
+		"description": "tog 3 min",
+		"folder": {
+			"name": "protal/serverless"
+		},
+		"content": {
+			"query": "/*** create table ***************************************************************/\nIF EXISTS ( SELECT * FROM sys.external_tables WHERE [name] = 'dm_fact_protal_tog_litra_2022' AND [location] = 'protal/DM/dm_fact_protal_tog_litra_2022') \n\tBEGIN\n\t\tDROP EXTERNAL TABLE Protal.dm_fact_protal_tog_litra_2022\n\tEND\nGO\n\n\tCREATE EXTERNAL TABLE Protal.dm_fact_protal_tog_litra_2022\n\t\tWITH (\n\t\tLOCATION = 'protal/DM/dm_fact_protal_tog_litra_2022',\n\t\tDATA_SOURCE = [zone-connected],\n\t\tFILE_FORMAT = [ParquetFormat]\n\t\t)\n\tAS\n\tSELECT *\n\tFROM\n    \tOPENROWSET(\n        \tBULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/dbo.dm_fact_Protal_Tog_Litra.parquet',\n        \tFORMAT = 'PARQUET'\n   \t\t) AS a\n\tWHERE KoereDoegn_BKEY BETWEEN 20220101 AND 20221231\nGO\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

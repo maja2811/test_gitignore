@@ -1,0 +1,26 @@
+{
+	"name": "SAP_CRM",
+	"properties": {
+		"Name": "SAP_CRM",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Description": "SAP_CRM schema modelling",
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "datalakegen2atlasdev"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 113,
+		"ObjectId": "0e8189b6-46ff-4f1a-a4ab-abcc6c13825f"
+	},
+	"type": "DATABASE"
+}

@@ -1,0 +1,20 @@
+{
+	"name": "020_Create External table as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/external_table"
+		},
+		"content": {
+			"query": "DROP EXTERNAL DATA SOURCE [zone-connected]\nCREATE EXTERNAL DATA SOURCE [zone-connected] WITH\n(\n\t--LOCATION = 'https://datalakegen2atlasdev.dfs.core.windows.net/sandbox/zone-connected/'\n    LOCATION = 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/'\n)\n\n\nIF EXISTS ( SELECT * FROM sys.external_tables WHERE object_id = OBJECT_ID('sapcrm.ExternalCLOYFPROL2') )\n    DROP EXTERNAL TABLE [sapcrm].[ExternalCLOYFPROL2]\nGO\n CREATE EXTERNAL TABLE [sapcrm].[ExternalCLOYFPROL2]\n     WITH (\n         LOCATION = 'released/sapcrm/aggregation/ExternalCLOYFPROL2/', --write to\n         DATA_SOURCE = [zone-connected],\n         FILE_FORMAT = ParquetFormat\n     )\n AS\n SELECT \"0BP_GROUP\",COUNT(*) AS ANT\n FROM\n     OPENROWSET(\n         BULK \n          'released/sapcrm/notebooks/partitioned_data/CCRMBPART/**',\n         --'sapcrm/CLOYFPROL2.parquet', --read from \n         DATA_SOURCE = 'zone-connected',\n         FORMAT = 'PARQUET'\n     ) AS EKSTERN\nGROUP BY \"0BP_GROUP\"\n\n--select * from [sapcrm].[ExternalCLOYFPROL2]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "Database principal permissions",
+	"properties": {
+		"content": {
+			"query": "SELECT \n    pr.name AS database_principal_name, \n    pr.type_desc,   \n    pr.authentication_type_desc, \n    pe.state_desc, \n    pe.permission_name  \nFROM sys.database_principals pr  \nJOIN sys.database_permissions pe ON pe.grantee_principal_id = pr.principal_id\nWHERE pr.name = 'P_CRM_BONUS_KPI_2F' \n;  ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

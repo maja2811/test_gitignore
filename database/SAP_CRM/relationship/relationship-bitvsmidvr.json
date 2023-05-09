@@ -1,0 +1,30 @@
+{
+	"name": "relationship-bitvsmidvr",
+	"properties": {
+		"Name": "relationship-bitvsmidvr",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "loyalitet_pointkontooperationer",
+		"ToTableName": "loyalitet_medlemsaktivitet",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "MSH_GUID",
+				"ToColumnName": "MENB_GUID"
+			},
+			{
+				"FromColumnName": "ACTI_GUID",
+				"ToColumnName": "MEDL_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "b88a5f61-7bb2-4326-b19d-f0ae1f850567"
+	},
+	"type": "RELATIONSHIP"
+}

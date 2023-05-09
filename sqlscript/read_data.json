@@ -1,0 +1,20 @@
+{
+	"name": "read_data",
+	"properties": {
+		"folder": {
+			"name": "protal/datalake"
+		},
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/dbo.dm_fact_Protal_Tog_Litra.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\nWHERE KoereDoegn_BKEY = 20220103\nAND TogNr = 10",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"name": "relationship-rffulanyoc",
+	"properties": {
+		"Name": "relationship-rffulanyoc",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "loyalitet_medlemsaktivitet",
+		"ToTableName": "loyalitet_medlemskab",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "MENB_GUID",
+				"ToColumnName": "MSH_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "c48daae6-974f-40b8-8842-19189fc450ce"
+	},
+	"type": "RELATIONSHIP"
+}

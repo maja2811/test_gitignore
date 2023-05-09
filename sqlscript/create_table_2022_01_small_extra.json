@@ -1,0 +1,20 @@
+{
+	"name": "create_table_2022_01_small_extra",
+	"properties": {
+		"folder": {
+			"name": "protal/serverless"
+		},
+		"content": {
+			"query": "/*** create table ***************************************************************/\n\nIF EXISTS ( SELECT * FROM [atlas-srvless-sql-dev].sys.external_tables WHERE [name] = 'dm_fact_protal_tog_litra_2022_01_small') \n\tBEGIN\n\t\tDROP EXTERNAL TABLE Protal.dm_fact_protal_tog_litra_2022_01_small\n\tEND\nGO\n\n\tCREATE EXTERNAL TABLE [atlas-srvless-sql-dev].Protal.dm_fact_protal_tog_litra_2022_01_small\n\t\tWITH (\n\t\tLOCATION = 'protal/DM/dm_fact_protal_tog_litra_2022_01_small',\n\t\tDATA_SOURCE = [zone-connected],\n\t\tFILE_FORMAT = [ParquetFormat]\n\t\t)\n\tAS\n\tSELECT KoereDoegn_BKEY, TogNr, Lokation_sekvens\n\t  FROM\n    \tOPENROWSET(\n        \tBULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/protal/dbo.dm_fact_Protal_Tog_Litra.parquet',\n        \tFORMAT = 'PARQUET'\n   \t\t) AS a\n\t  WHERE KoereDoegn_BKEY BETWEEN 20220101 AND 20220131\n\n\tUNION\n\t  SELECT 20220103 AS KoereDoegn_BKEY, 33333333 AS TogNr, 3333 AS Lokation_sekvens\n\nGO\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,275 @@
+{
+	"name": "fact_points",
+	"properties": {
+		"folder": {
+			"name": "sapcrm/partition_by_day"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": true,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "e75d5e82-8295-479f-9e65-785defd80958"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"collapsed": false
+				},
+				"source": [
+					"#load in the the points file into a temporary view\r\n",
+					"lp_df = spark.read.load('abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYPOKO2.parquet', format='parquet')\r\n",
+					"display(lp_df.limit(10)) #Show a little data\r\n",
+					"lp_df.createOrReplaceTempView('loyalitet_pointkontooperationer') #create a temporary view to later use it to transform data\r\n",
+					""
+				],
+				"execution_count": 20
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"# We load in loyalitetmedlemsaktivitet\r\n",
+					"lma_df = spark.read.load('abfss://sandbox@datalakegen2atlasdev.dfs.core.windows.net/datalakehouse-data_management_team/sapcrm/CLOYMEDA2.parquet', format='parquet')\r\n",
+					"display(lma_df.limit(10)) # Show a little data\r\n",
+					"lma_df.createOrReplaceTempView('loyalitet_medlemsaktivitet') #create a temporary view to later use it to transform data"
+				],
+				"execution_count": 21
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"--testing views exist with SQL\r\n",
+					"SELECT 'loyalitet medlemsaktivitet', *  FROM loyalitet_medlemsaktivitet LIMIT 10; \r\n",
+					"SELECT 'loyalitet point', * FROM loyalitet_pointkontooperationer LIMIT 10;"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#We then transform the data to the expected grain. Date filters need to be parametized.\r\n",
+					"fact_points = spark.sql(\"\"\" \r\n",
+					"    SELECT \r\n",
+					"        TO_DATE(ACT_DATE, 'yyyyMMdd') AS activity_date, \r\n",
+					"        CAST(LEFT(ACT_DATE,4) AS INT) AS activity_year, \r\n",
+					"        CAST(SUBSTR(ACT_DATE, 5, 2) AS INT) AS activity_month,\r\n",
+					"        lma.CATEGORY AS category,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE) AS process_type,\r\n",
+					"        SUM(lpk.TOTPOINTS) AS total_points    \r\n",
+					"    FROM loyalitet_medlemsaktivitet lma  \r\n",
+					"    INNER JOIN loyalitet_pointkontooperationer lpk ON lpk.MSH_GUID = lma.MENB_GUID\r\n",
+					"            AND lma.MEDL_GUID = lpk.ACTI_GUID\r\n",
+					"    WHERE lpk.0BPARTNER IS NOT NULL AND lma.ACT_DATE BETWEEN 20220131 AND 20220205 \r\n",
+					"    GROUP BY  \r\n",
+					"        lma.ACT_DATE,\r\n",
+					"        lma.CATEGORY,\r\n",
+					"        IFNULL(PROC_TYPE___T, PROC_TYPE)\r\n",
+					"    \"\"\")\r\n",
+					"\r\n",
+					"display(fact_points.limit(10))\r\n",
+					"fact_points.createOrReplaceTempView('fact_points') #create a temporary view to later use it for individual partition overwrite"
+				],
+				"execution_count": 61
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#We then partition the files and store them. This only works for the initial load.\r\n",
+					"fact_points.write.partitionBy(\"activity_year\",\"activity_month\", \"activity_date\").saveAsTable('fact_points', format='parquet', mode='overwrite',  path='abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/released/sapcrm/fact_points/')"
+				],
+				"execution_count": 68
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#We then partition the files and store them. This has partitionOverwriteMode = 'dynamic' set which only overwrites existing and inserts new partitions. It does not overwrite/delete partitions of which there is no incoming data\r\n",
+					"fact_points.write.partitionBy(\"activity_year\",\"activity_month\", \"activity_date\").saveAsTable('fact_points', format='parquet', mode='overwrite', partitionOverwriteMode = 'dynamic', path='abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/released/sapcrm/fact_points/')"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#We then partition the files and store them. This will append the existing folder. Hence w eneed to parametize this notebook and put it in a scheduled pipeline to work properly\r\n",
+					"# Only works for storing historic data that does not change. If changed we would need to overwrite (as appending, even if same partition already exists will just add another file, despite mostly duplicate)\r\n",
+					"fact_points.write.partitionBy(\"activity_year\",\"activity_month\", \"activity_date\").saveAsTable('fact_points', format='parquet', mode='append', path='abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/released/sapcrm/fact_points/')"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"#Then we need to make logic that only overwrites the partitions if they already exist. We do not overwrite the complete folder and all other partitions.\r\n",
+					"# The only way to do this is to overwrite a single partition at a time. To do so we first need to create a dataframe we can loop through with all of the partitions.\r\n",
+					"partitions = spark.sql(\"\"\" \r\n",
+					"    SELECT DISTINCT\r\n",
+					"        activity_year,\r\n",
+					"        activity_month,\r\n",
+					"        activity_date\r\n",
+					"    FROM fact_points\r\n",
+					"    ORDER BY activity_date ASC\r\n",
+					"    \"\"\")\r\n",
+					"#display(partitions.limit(10))\r\n",
+					"\r\n",
+					"# convert the DataFrame to a list that we can loop through easily\r\n",
+					"partition_dates = partitions.rdd.collect()\r\n",
+					"\r\n",
+					"# we then loop through the collection of dates and can overwrite partition one at a time\r\n",
+					"for row in partition_dates:\r\n",
+					"    #print(row[\"activity_year\"], row[\"activity_month\"], row[\"activity_date\"]) # test your loop\r\n",
+					"    #within the loop we then filter the fact_points view to only look at the specific date of data\r\n",
+					"    specific_fact_points = fact_points.filter(fact_points.activity_date == row[\"activity_date\"])\r\n",
+					"    display(specific_fact_points.limit(10))\r\n",
+					"\r\n",
+					"    # we then overwrite one partition at a time\r\n",
+					"    #specific_fact_points.write.partitionBy(\"activity_year\",\"activity_month\", \"activity_date\").saveAsTable('specific_fact_points', format='parquet', mode='overwrite', path='abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/released/sapcrm/fact_points/year_partition/month_partition/day_partition')"
+				],
+				"execution_count": 60
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"tags": [
+						"parameters"
+					]
+				},
+				"source": [
+					""
+				]
+			}
+		]
+	}
+}

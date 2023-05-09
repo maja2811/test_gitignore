@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CLOYFPID as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "DROP VIEW IF EXISTS sapcrm.view_CLOYFPID\nGO\n\nCREATE VIEW sap_crm.view_CLOYFPID AS\nSELECT\n [0BP_GUID]\n,[0BP_ID_DATE]\n,[0BP_ID_INST]\n,[0BP_ID_NUM]\n,[0BP_ID_TYPE]\n,[0BP_ID_TYPE___T]\n,[ZBPARTNER___T]\n,[0RECORDTP]\n,[0REGION]\n,[0REGION___T]\n,[0REQTSN]\n,[ZBPARTNER]\n,[1ROWCOUNT]\n,[0COUNTRY]\n,[0COUNTRY___T]\n,[0DATEFROM]\n,[0DATETO]\n,[0FLGDELETED]\n,[0INFOPROV]\nFROM\n    OPENROWSET(\n        BULK 'sapcrm/CLOYFPID.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS CLOYFPID;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "Database schema and object permissions",
+	"properties": {
+		"content": {
+			"query": "--USE dbname;\nSELECT \n    pr.principal_id, \n    pr.name AS principal_name, \n    pr.type_desc,   \n    pr.authentication_type_desc, \n    pe.state_desc,   \n    pe.permission_name, \n    s.name AS object_schema_name,\n    o.name AS object_name ,\n    SCHEMA_NAME(major_id) AS schema_name\nFROM sys.database_principals pr  \nJOIN sys.database_permissions pe  \n    ON pe.grantee_principal_id = pr.principal_id  \nJOIN sys.objects o  \n    ON pe.major_id = o.object_id  \nLEFT JOIN sys.schemas s  \n    ON o.schema_id = s.schema_id\n--WHERE SCHEMA_NAME(major_id) = 'sapcrm' -- Schema name\n--WHERE pr.name = 'P_CRM_BONUS_KPI_2F' -- principal name\n;  ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

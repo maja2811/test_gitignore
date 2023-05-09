@@ -1,0 +1,30 @@
+{
+	"name": "relationship-pnpffnbjff",
+	"properties": {
+		"Name": "relationship-pnpffnbjff",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "IVU_FR_KOREPLAN"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "fr_train",
+		"ToTableName": "fr_itinerary",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "validity_validityDate",
+				"ToColumnName": "validity_validityDate"
+			},
+			{
+				"FromColumnName": "trainGroup_externalNumber",
+				"ToColumnName": "trainGroup_externalNumber"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "26a98485-55c0-440b-96e9-ee6f0a4f8149"
+	},
+	"type": "RELATIONSHIP"
+}

@@ -1,0 +1,187 @@
+{
+	"name": "CSALESOP2 Notebook",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "AtlasSparkDev",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": true,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "92c94d2c-b80b-43bb-9c02-950f3a4f543e"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/b3aa98da-48aa-4bc9-aba1-effeb7407b42/resourceGroups/rg-atlas-synapse-analytics-dev/providers/Microsoft.Synapse/workspaces/atlas-synapse-analytics-dev/bigDataPools/AtlasSparkDev",
+				"name": "AtlasSparkDev",
+				"type": "Spark",
+				"endpoint": "https://atlas-synapse-analytics-dev.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/AtlasSparkDev",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"collapsed": false
+				},
+				"source": [
+					"#Set the path of delta location\r\n",
+					"delta_table_root = \"abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/\"\r\n",
+					"delta_table_path = delta_table_root + \"sap_crm/delta/CSALEOP2\"\r\n",
+					"print(delta_table_path)\r\n",
+					"df = spark.read.load('abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/sap_crm/delta/CSALEOP2', format='parquet')\r\n",
+					"# Write dataframe to delta table \r\n",
+					"df.write.format(\"delta\").mode (\"overwrite\").save(delta_table_path)"
+				],
+				"execution_count": 12
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					}
+				},
+				"source": [
+					"%%sql\r\n",
+					"SELECT * FROM CSALESOP2 WHERE [0CALDAY] >= '2022-01-01' AND [0CALDAY] < '2022-02-01';\r\n",
+					"CREATE VIEW atlas-synapse-analytics-dev.sap_crm.view_CSALESOP2\r\n",
+					"AS\r\n",
+					"SELECT []\r\n",
+					"WHERE [0CALDAY] >= '2022-01-01' AND [0CALDAY] < '2022-02-01';\r\n",
+					"FROM CSALESOP2"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"from pyspark.sql.functions import col\r\n",
+					"\r\n",
+					"# Define the path to the data\r\n",
+					"data_path = \"abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/sap_crm/delta/CSALEOP2\"\r\n",
+					"\r\n",
+					"# Read the data into a DataFrame\r\n",
+					"df = spark.read.format(\"parquet\").option(\"header\", True).option(\"inferSchema\", True).load(data_path)\r\n",
+					"\r\n",
+					"# Select the columns of interest\r\n",
+					"view_df = df.select(col('0BP_CONTPER'), col('0BP_CONTPER___T'), col('0CALDAY'), col('0CRMPROD_ID'), col('0CRMPOPPGUI'))\r\n",
+					"\r\n",
+					"# Create a view of the DataFrame\r\n",
+					"view_df.createOrReplaceTempView(\"my_view\")"
+				],
+				"execution_count": 3
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"from pyspark.sql import SparkSession\r\n",
+					"from pyspark.sql.functions import col\r\n",
+					"\r\n",
+					"spark = SparkSession.builder.appName(\"DeltaTableOps\").getOrCreate()"
+				],
+				"execution_count": 6
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"# Query the view using SQL\r\n",
+					"spark.sql(\"SELECT * FROM my_view\").show()"
+				],
+				"execution_count": 4
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"date_str = \"2023-05-01\"\r\n",
+					"date_col = col(\"0CALDAY\").cast(\"date\")\r\n",
+					"filtered_df = delta_df.filter(date_col == date_str)"
+				],
+				"execution_count": 8
+			}
+		]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"name": "datalakegen2atlasdevArchive",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "datalakegen2atlasdev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Avro",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ArchiveDev",
+				"folderPath": "iothub-atlas-ext-dev",
+				"fileSystem": "iothub"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

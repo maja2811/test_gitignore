@@ -1,0 +1,20 @@
+{
+	"name": "Itinerary - Create Table",
+	"properties": {
+		"folder": {
+			"name": "ivu/Serverless"
+		},
+		"content": {
+			"query": "\n/*** create schema  ***************************************************/\nIF NOT EXISTS ( SELECT * FROM sys.schemas WHERE [name] = 'IVU' )\n\tCREATE SCHEMA IVU authorization dbo\nGO\n\n\n\n/*** create table ***************************************************************/\nIF NOT EXISTS ( SELECT * FROM sys.external_tables WHERE [name] = 'FR_Itinerary' )\n\n\tCREATE EXTERNAL TABLE IVU.FR_Itinerary \n\t\tWITH (\n\t\tLOCATION = 'IVU/EDW/FR_Itinerary',\n\t\tDATA_SOURCE = [zone-connected],\n\t\tFILE_FORMAT = [ParquetFormat]\n\t\t)\n\tAS\n\tSELECT\n\t\t[validity_validityDate],\n\t\t[trainGroup_externalNumber],\n\t\t[beginLocation_externalNumber],\n\t\t[beginLocation_abbreviation],\n\t\t[endLocation_externalNumber],\n\t\t[endLocation_abbreviation],\n\t\t[trainGroup_startDate],\n\t\t[trainSection_beginTime],\n\t\t[trainSection_beginDayOffset],\n\t\t[BeginTimestamp],\n\t\t[trainSection_endTime],\n\t\t[trainSection_endDayOffset],\n\t\t[EndTimestamp],\n\t\t[trainSection_distance],\n\t\t[location_externalNumber],\n\t\t[location_abbreviation],\n\t\t[Station_sequence],\n\t\t[itineraryStop_operationalArrivalTime],\n\t\t[itineraryStop_operationalArrivalDayOffset],\n\t\t[ArrivalTimestamp],\n\t\t[itineraryStop_operationalDepartureTime],\n\t\t[itineraryStop_operationalDepartureDayOffset],\n\t\t[DepartureTimestamp],\n\t\t[Station_from],\n\t\t[Station_from_externalNumber],\n\t\t[Station_to],\n\t\t[Station_to_externalNumber],\n\t\t[itineraryStop_distance],\n\t\t[itineraryStop_passthrough],\n\t\t[itineraryStop_track],\n\t\t[itineraryStop_networkTrainNumber],\n\t\t[itineraryStop_trainCategory],\n\t\t[Koereplan72timer],\n\t\t[SysValidFrom],\n\t\t[SysValidTo]\n\tFROM\n    \tOPENROWSET(\n\t        BULK 'https://datalakegen2atlasdev.dfs.core.windows.net/zone-connected/IVU/FR_Itinerary.csv',\n    \t    FORMAT = 'CSV',\n        \tHEADER_ROW = TRUE,\n        \tFIELDTERMINATOR = ';',\n\t        PARSER_VERSION = '2.0'\n    \t) \n\tWITH (\n\t\t[validity_validityDate] date,\n\t\t[trainGroup_externalNumber] bigint,\n\t\t[beginLocation_externalNumber] bigint,\n\t\t[beginLocation_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t\t[endLocation_externalNumber] bigint,\n\t\t[endLocation_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t\t[trainGroup_startDate] date,\n\t\t[trainSection_beginTime] time(0),\n\t\t[trainSection_beginDayOffset] bigint,\n\t\t[BeginTimestamp] datetime2(0),\n\t\t[trainSection_endTime] time(0),\n\t\t[trainSection_endDayOffset] bigint,\n\t\t[EndTimestamp] datetime2(0),\n\t\t[trainSection_distance] bigint,\n\t\t[location_externalNumber] bigint,\n\t\t[location_abbreviation] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t\t[Station_sequence] bigint,\n\t\t[itineraryStop_operationalArrivalTime] time(0),\n\t\t[itineraryStop_operationalArrivalDayOffset] bigint,\n\t\t[ArrivalTimestamp] datetime2(0),\n\t\t[itineraryStop_operationalDepartureTime] time(0),\n\t\t[itineraryStop_operationalDepartureDayOffset] bigint,\n\t\t[DepartureTimestamp] datetime2(0),\n\t\t[Station_from] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t\t[Station_from_externalNumber] bigint ,\n\t\t[Station_to] nvarchar(4000) COLLATE Latin1_General_100_BIN2_UTF8,\n\t\t[Station_to_externalNumber] bigint,\n\t\t[itineraryStop_distance] bigint,\n\t\t[itineraryStop_passthrough] bigint,\n\t\t[itineraryStop_track] nvarchar(4000),\n\t\t[itineraryStop_networkTrainNumber] bigint,\n\t\t[itineraryStop_trainCategory] nvarchar(4000),\n\t\t[Koereplan72timer] bigint,\n\t\t[SysValidFrom] datetime2(0),\n\t\t[SysValidTo] datetime2(0)\n\t)  AS A\n\nGO\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

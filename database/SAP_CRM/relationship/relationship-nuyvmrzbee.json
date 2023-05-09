@@ -1,0 +1,26 @@
+{
+	"name": "relationship-nuyvmrzbee",
+	"properties": {
+		"Name": "relationship-nuyvmrzbee",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "SAP_CRM"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "kunde_billetter",
+		"ToTableName": "kunde_master",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "0BP_GUID",
+				"ToColumnName": "0BP_GUID"
+			}
+		],
+		"RelationshipType": 0,
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "949f2a95-db39-4724-895b-6fc0ff3be1b4"
+	},
+	"type": "RELATIONSHIP"
+}

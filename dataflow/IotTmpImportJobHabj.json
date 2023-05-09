@@ -1,0 +1,62 @@
+{
+	"name": "IotTmpImportJobHabj",
+	"properties": {
+		"folder": {
+			"name": "IoTHubTestStef"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "datalakegen2atlasdev",
+						"type": "LinkedServiceReference"
+					},
+					"name": "IotLakeHabj"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "datalakegen2atlasdev",
+						"type": "LinkedServiceReference"
+					},
+					"name": "IotLakeOutputHabj"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SplitColumns"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EnqueuedTimeUtc as string,",
+				"          Properties as [string,string],",
+				"          SystemProperties as [string,string],",
+				"          Body as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'avro',",
+				"     fileSystem: 'iothub',",
+				"     folderPath: 'iothub-atlas-ext-dev/02/2023/03/05/10',",
+				"     fileName: '11.avro') ~> IotLakeHabj",
+				"IotLakeHabj derive(FirstColumn = split(Body, ',')[1],",
+				"          SecondColumn = split(Body, ',')[2],",
+				"          ThirdColumn = split(Body, ',')[3]) ~> SplitColumns",
+				"SplitColumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     fileSystem: 'zone-connected',",
+				"     folderPath: 'IotTestHabj',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> IotLakeOutputHabj"
+			]
+		}
+	}
+}

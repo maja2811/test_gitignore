@@ -1,0 +1,20 @@
+{
+	"name": "090_create view CLOYMEDS2 as serverless",
+	"properties": {
+		"folder": {
+			"name": "sap_crm/view"
+		},
+		"content": {
+			"query": "DROP VIEW IF EXISTS sapcrm.view_CLOYMEDS2\nGO\n\nCREATE VIEW sap_crm.view_CLOYMEDS2 AS\nSELECT\n[0BPARTNER]\n,[0BPARTNER___T]\n,[0BP_GROUP]\n,[0BP_GROUP___T]\n,[0BP_TYPE]\n,[0BP_TYPE___T]\n,[0BP_CAT]\n,[0BP_CAT___T]\n,[0CREATEDON]\n,[0BP_GUID]\n,[ZBPARTNER]\n,[ZBPARTNER___T]\n,[PROG_GUID___T]\n,[STARTDATE]\n,[ZZREASON]\n,[ZZREASON___T]\n,[ZZSTATUS]\n,[ZZSTATUS___T]\n,[MSH_GUID___T]\n,[MSH_ID]\n,[MSH_ID___T]\n,[MSH_TYPE]\n,[MSH_TYPE___T]\n,[PROG_GUID]\n,[LATXNDATE]\n,[LOYPROGID]\n,[MSH_GUID]\n,[1ROWCOUNT]\n,[FP_SOURCE___T]\n,[LOYPROGID___T]\n,[4CLOYMEDS2_LAST_BASIC_L]\n,[4CLOYMEDS2_LIFETIME_LVL]\n,[4CLOYMEDS2_STATUS_CH_DA]\n,[4CLOYMEDS2_STATUS_REASO]\n,[END_DATE]\n,[FP_SOURCE]\n,[0INFOPROV]\n,[0RECORDTP]\n,[0REQTSN]\n,[4CLOYMEDS2_BASIC_LVL]\n,[4CLOYMEDS2_BWSTLOYMSHS]\n,[4CLOYMEDS2_BWSTLOYMSHU]\nFROM\n    OPENROWSET(\n        BULK 'sapcrm/CLOYMEDS2.parquet',\n        DATA_SOURCE = 'sapcrm',\n        FORMAT='PARQUET'\n    ) AS CLOYMEDS2;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "atlas-srvless-sql-dev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

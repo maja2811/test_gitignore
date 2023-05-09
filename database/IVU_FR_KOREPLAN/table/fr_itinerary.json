@@ -1,0 +1,609 @@
+{
+	"name": "fr_itinerary",
+	"properties": {
+		"Name": "fr_itinerary",
+		"EntityType": "TABLE",
+		"TableType": "EXTERNAL",
+		"Namespace": {
+			"SchemaName": null,
+			"DatabaseName": "IVU_FR_KOREPLAN",
+			"DatabaseId": null
+		},
+		"Partitioning": {
+			"PartitionFunctionType": null,
+			"Keys": null
+		},
+		"StorageDescriptor": {
+			"Distribution": null,
+			"Columns": [
+				{
+					"Name": "validity_validityDate",
+					"Description": "Køredøgn",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "trainGroup_externalNumber",
+					"Description": "Train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "beginLocation_externalNumber",
+					"Description": "Train section Start station - UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "beginLocation_abbreviation",
+					"Description": "Train section Start station - short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "endLocation_externalNumber",
+					"Description": "Train section End station - UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "endLocation_abbreviation",
+					"Description": "Train section End station - short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainGroup_startDate",
+					"Description": "Train section Begin date",
+					"OriginDataTypeName": {
+						"TypeName": "date",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "date",
+							"DateFormat": "YYYY-MM-DD"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_beginTime",
+					"Description": "Train section Begin time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_beginDayOffset",
+					"Description": "Train section Begin Day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "BeginTimestamp",
+					"Description": "Train section Begin-timestamp",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_endTime",
+					"Description": "Train section End time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_endDayOffset",
+					"Description": "Train section End Day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "EndTimestamp",
+					"Description": "Train section End-timestamp",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "trainSection_distance",
+					"Description": "Train section destance in meters",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "location_externalNumber",
+					"Description": "Current station UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "location_abbreviation",
+					"Description": "Current station short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "Station_sequence",
+					"Description": "Station sequence",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_operationalArrivalTime",
+					"Description": "Arrival time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_operationalArrivalDayOffset",
+					"Description": "Arrival time Day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "ArrivalTimestamp",
+					"Description": "Arrival to current_station",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_operationalDepartureTime",
+					"Description": "Departure time",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_operationalDepartureDayOffset",
+					"Description": "Departure time Day-offset",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "DepartureTimestamp",
+					"Description": "Departure from current station",
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "Station_from",
+					"Description": "previous station - short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "Station_from_externalNumber",
+					"Description": "previous station - UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "Station_to",
+					"Description": "next station - short-name",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "Station_to_externalNumber",
+					"Description": "ext station - UIC number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_distance",
+					"Description": "meters to the next station",
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_passthrough",
+					"Description": "If the train stop or not",
+					"OriginDataTypeName": {
+						"TypeName": "short",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "short"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_track",
+					"Description": "Track (spor)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 8,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_networkTrainNumber",
+					"Description": "Train number",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 20,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "itineraryStop_trainCategory",
+					"Description": "Train category (Tog-kategori)",
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 6,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					}
+				},
+				{
+					"Name": "Koereplan72timer",
+					"Description": "Indicator, that shows the version of the record 72 hours before planned",
+					"OriginDataTypeName": {
+						"TypeName": "short",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "short"
+						}
+					}
+				},
+				{
+					"Name": "SysValidFrom",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				},
+				{
+					"Name": "SysValidTo",
+					"Description": null,
+					"OriginDataTypeName": {
+						"TypeName": "timestamp",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 0,
+						"Precision": 0,
+						"Scale": 0,
+						"Properties": {
+							"HIVE_TYPE_STRING": "timestamp",
+							"TimestampFormat": "YYYY-MM-DD HH:MM:SS.fffffffff"
+						}
+					}
+				}
+			],
+			"ColumnSetEntityName": "d60cb2f8-6c79-44ea-a467-38ac09557e0c",
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database/FR_Itinerary/fr_itinerary.parquet",
+					"FormatTypeSetToDatabaseDefault": false
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://zone-connected@datalakegen2atlasdev.dfs.core.windows.net/IVU/lake_database/FR_Itinerary/fr_itinerary.parquet",
+				"Properties": {
+					"LinkedServiceName": "datalakegen2atlasdev",
+					"LocationSetToDatabaseDefault": false
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"Snappy\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+			},
+			"Compressed": false,
+			"SerDeInfo": null,
+			"IsStoredAsSubdirectories": false
+		},
+		"Owner": null,
+		"CreateTime": 0,
+		"LastAccessTime": 0,
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false,
+		"ViewOriginalText": null,
+		"ViewExpandedText": null,
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"OriginObjectId": null,
+		"IsSharedEntity": false,
+		"PublishStatus": "PUBLISHED",
+		"Properties": {
+			"Description": "",
+			"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+			"PrimaryKeys": "validity_validityDate,trainGroup_externalNumber,beginLocation_externalNumber,endLocation_externalNumber,location_externalNumber",
+			"spark.sql.sources.provider": "parquet",
+			"spark.sql.sources.schema.numParts": "1",
+			"spark.sql.sources.schema.part.0": "{\"type\":\"struct\",\"fields\":[{\"name\":\"validity_validityDate\",\"type\":\"date\",\"nullable\":false,\"metadata\":{}},{\"name\":\"trainGroup_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"beginLocation_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"beginLocation_abbreviation\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"endLocation_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"endLocation_abbreviation\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainGroup_startDate\",\"type\":\"date\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_beginTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_beginDayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"BeginTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_endTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_endDayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"EndTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"trainSection_distance\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"location_externalNumber\",\"type\":\"string\",\"nullable\":false,\"metadata\":{}},{\"name\":\"location_abbreviation\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Station_sequence\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_operationalArrivalTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_operationalArrivalDayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"ArrivalTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_operationalDepartureTime\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_operationalDepartureDayOffset\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"DepartureTimestamp\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Station_from\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Station_from_externalNumber\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Station_to\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Station_to_externalNumber\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_distance\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_passthrough\",\"type\":\"short\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_track\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_networkTrainNumber\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"itineraryStop_trainCategory\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"Koereplan72timer\",\"type\":\"short\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SysValidFrom\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}},{\"name\":\"SysValidTo\",\"type\":\"timestamp\",\"nullable\":true,\"metadata\":{}}]}",
+			"spark.sql.partitionProvider": "catalog"
+		},
+		"ObjectVersion": 17,
+		"ObjectId": "6ebca6db-f681-45c7-8aae-6443ed35b288",
+		"Description": ""
+	},
+	"type": "TABLE"
+}
